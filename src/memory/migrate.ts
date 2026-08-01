@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { EMBEDDING_DIMENSIONS } from '../config.js';
+import { DATABASE_URL, EMBEDDING_DIMENSIONS } from '../config.js';
 import { closePool, getPool } from './pool.js';
 
 const SCHEMA_PATH = fileURLToPath(new URL('../../db/schema.sql', import.meta.url));
@@ -98,6 +98,25 @@ export function applyEmbeddingDimensions(sql: string, dimensions: number): strin
   return sql.replace(/\bVECTOR\s*\(\s*\d+\s*\)/gi, `VECTOR(${dimensions})`);
 }
 
+/**
+ * Retarget `GRANT ... ON DATABASE sifta` at whichever database we are actually
+ * migrating. Tests run against `sifta_test`; without this the grant would land
+ * on the development database or fail outright.
+ */
+export function applyDatabaseName(sql: string, database: string): string {
+  return sql.replace(/\bON DATABASE\s+sifta\b/gi, `ON DATABASE ${database}`);
+}
+
+/** Database name from the connection string, defaulting to `sifta`. */
+export function databaseNameFrom(connectionString: string): string {
+  try {
+    const path = new URL(connectionString).pathname.replace(/^\//, '');
+    return path.length > 0 ? path : 'sifta';
+  } catch {
+    return 'sifta';
+  }
+}
+
 /** True when the error is CockroachDB telling us the object already exists. */
 function isAlreadyExists(err: unknown): boolean {
   const code = (err as { code?: string } | null)?.code;
@@ -112,7 +131,10 @@ export interface MigrateResult {
 
 export async function migrate(): Promise<MigrateResult> {
   const raw = await readFile(SCHEMA_PATH, 'utf8');
-  const sql = applyEmbeddingDimensions(raw, EMBEDDING_DIMENSIONS);
+  const sql = applyDatabaseName(
+    applyEmbeddingDimensions(raw, EMBEDDING_DIMENSIONS),
+    databaseNameFrom(DATABASE_URL),
+  );
   const statements = splitStatements(sql);
   const pool = getPool();
 

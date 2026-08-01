@@ -1,0 +1,68 @@
+{
+  "_README": [
+    "NIGERIAN NAME CORPUS — used to build the known-negative evaluation set.",
+    "",
+    "OWNER: expand freely. These are common given names and surnames across the",
+    "three largest Nigerian language groups. They are combined",
+    "combinatorially by src/eval/corpus.ts to synthesise the 5,000 'ordinary",
+    "customer' names that must NOT match any sanctions entry.",
+    "",
+    "IMPORTANT: these are population-typical names, deliberately NOT taken from",
+    "any watchlist. The eval cross-checks every generated name against the",
+    "ingested OFAC list and discards any genuine collision before measuring, so",
+    "adding a name that happens to appear on a list will not silently corrupt",
+    "the false-positive number.",
+    "",
+    "The point of this file is that the false-positive measurement is made",
+    "against realistic African names rather than the Anglo-European test data",
+    "screening vendors tune on. That difference IS the headline result."
+  ],
+  "yoruba": {
+    "given": [
+      "ADEBAYO", "ADEWALE", "ADEYEMI", "OLUWASEUN", "OLUWAFEMI", "OLUMIDE",
+      "BABATUNDE", "AYODELE", "TEMITOPE", "FOLAKE", "BUKOLA", "KEHINDE",
+      "TAIWO", "YETUNDE", "ABIODUN", "OLAMIDE", "OLUSEGUN", "TITILAYO",
+      "FUNMILAYO", "ADENIKE", "OMOLARA", "DAMILOLA", "OLUWATOYIN", "OLUWATOBI",
+      "IFEOLUWA", "MOBOLAJI", "ADETOKUNBO", "OLUWABUKOLA", "MORENIKE", "OLADELE"
+    ],
+    "surnames": [
+      "ADEYEMI", "OGUNDIMU", "FASHOLA", "BALOGUN", "ADELEKE", "SOYINKA",
+      "ADEMOLA", "BAKARE", "OGUNLESI", "ADESINA", "AFOLABI", "OJO",
+      "OSHODI", "ALABI", "FAGBEMI", "OYEDIRAN", "SOWANDE", "ILORI",
+      "ALUKO", "AYINDE", "ADEBANJO", "OGUNTADE", "OLAWALE", "SHOBOWALE",
+      "AKINTOLA", "OYELARAN"
+    ]
+  },
+  "igbo": {
+    "given": [
+      "CHUKWUEMEKA", "CHINEDU", "NGOZI", "CHIOMA", "IFEANYI", "UCHECHUKWU",
+      "CHIAMAKA", "OBIAGELI", "NNAMDI", "IKECHUKWU", "ADAEZE", "CHIDI",
+      "KELECHI", "ONYEKACHI", "CHUKWUEBUKA", "NKECHI", "EMEKA", "UCHE",
+      "CHINWE", "OBINNA", "IFEOMA", "CHUKWUDI", "NNEKA", "EKENE",
+      "AMARACHI", "CHIDINMA", "OKECHUKWU", "NGOZICHUKWUKA"
+    ],
+    "surnames": [
+      "OKAFOR", "OKONKWO", "NWACHUKWU", "EZE", "OBI", "NWOSU",
+      "ANYANWU", "OKORO", "UGWU", "ONWUKA", "MADUEKE", "NNAJI",
+      "EZENWA", "OKEKE", "UDEH", "AGU", "MBAH", "IBE",
+      "NWANKWO", "ANICHE", "ORJI", "UZOMA", "CHIKWENDU", "NDUKWE",
+      "OSUJI", "ILOABACHIE"
+    ]
+  },
+  "hausa": {
+    "given": [
+      "MUHAMMAD", "IBRAHIM", "AISHA", "FATIMA", "ABUBAKAR", "USMAN",
+      "ZAINAB", "YUSUF", "HAUWA", "SULEIMAN", "AMINA", "HALIMA",
+      "MUSA", "UMAR", "MARYAM", "NASIR", "HADIZA", "ALIYU",
+      "KABIR", "RUKAYYA", "SHEHU", "BILKISU", "ABDULLAHI", "MAIMUNA",
+      "SADIQ", "ZUWAIRA"
+    ],
+    "surnames": [
+      "DANJUMA", "BELLO", "SANI", "YAKUBU", "GARBA", "LAWAL",
+      "MOHAMMED", "UMAR", "BALA", "IDRIS", "GAMBO", "TANKO",
+      "MAINA", "DOGARA", "JIBRIL", "KACHALLA", "MARAFA", "ABUBAKAR",
+      "ALIYU", "MUSA", "SHUAIBU", "GIDADO", "DAHIRU", "NAJIB",
+      "USMAN", "HASSAN"
+    ]
+  }
+}

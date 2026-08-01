@@ -1,5 +1,6 @@
 import type { PoolClient } from 'pg';
 import { CANDIDATE_LIMIT } from '../config.js';
+import { normalizeName } from '../normalize.js';
 import { getPool } from './pool.js';
 import type { Candidate, NameVariantInput, VariantKind } from './types.js';
 import { encodeVector } from './vector.js';
@@ -18,11 +19,29 @@ function db(client?: Queryable): Queryable {
  */
 export const MAX_VECTOR_INSERT_CHUNK = 10;
 
+export interface InsertVariantOptions {
+  chunkSize?: number;
+  /**
+   * 'ignore' leaves an existing row alone. 'updateEmbedding' overwrites the
+   * embedding, which is what the variant-generation pass needs: ingestion
+   * writes primary/aka rows without vectors, and this backfills them.
+   */
+  onConflict?: 'ignore' | 'updateEmbedding';
+}
+
 export async function insertVariants(
   variants: readonly NameVariantInput[],
   client?: Queryable,
-  chunkSize: number = MAX_VECTOR_INSERT_CHUNK,
+  options: InsertVariantOptions | number = {},
 ): Promise<number> {
+  const opts: InsertVariantOptions =
+    typeof options === 'number' ? { chunkSize: options } : options;
+  const chunkSize = opts.chunkSize ?? MAX_VECTOR_INSERT_CHUNK;
+  const conflictClause =
+    opts.onConflict === 'updateEmbedding'
+      ? 'DO UPDATE SET embedding = excluded.embedding'
+      : 'DO NOTHING';
+
   if (chunkSize < 1 || chunkSize > MAX_VECTOR_INSERT_CHUNK) {
     throw new Error(
       `chunkSize must be between 1 and ${MAX_VECTOR_INSERT_CHUNK} (vector inserts must not be batched); got ${chunkSize}`,
@@ -42,7 +61,13 @@ export async function insertVariants(
       values.push(
         v.entityId,
         v.jurisdiction,
-        v.variantText,
+        // Normalised here, at the single write choke point. Ingestion wrote
+        // OFAC's mixed case ("Mark John TAYLOR") while variant generation
+        // wrote uppercase, so the ON CONFLICT key missed and every listed
+        // individual got a duplicate row. Embeddings were always computed on
+        // normalised text, so matching was unaffected — but the row count was
+        // wrong and half of them carried no vector.
+        normalizeName(v.variantText),
         v.variantKind,
         v.embedding ? encodeVector(v.embedding) : null,
       );
@@ -51,7 +76,7 @@ export async function insertVariants(
     const { rowCount } = await conn.query(
       `INSERT INTO name_variant (entity_id, jurisdiction, variant_text, variant_kind, embedding)
        VALUES ${tuples.join(', ')}
-       ON CONFLICT (entity_id, variant_text, variant_kind) DO NOTHING`,
+       ON CONFLICT (entity_id, variant_text, variant_kind) ${conflictClause}`,
       values,
     );
     written += rowCount ?? 0;
@@ -76,25 +101,40 @@ interface CandidateRow {
  * Candidate generation.
  *
  * The WHERE on jurisdiction is not a filter applied after the search — it is
- * the vector index's partition prefix, so a Nigerian screen scans only the
- * Nigerian partition. `npm run explain` prints the plan proving it.
+ * the vector index's partition prefix, so the scan is bounded to one
+ * partition. `npm run explain` prints the plan proving it.
+ *
+ * The vector search is isolated in a CTE deliberately. Written as a single
+ * flat SELECT joining `watchlist_entity`, the optimizer costs the join against
+ * a 250k-row table and abandons the vector index for a FULL SCAN — a 3-6
+ * second query that still returns correct results, so nothing fails loudly.
+ * The CTE makes the k-nearest lookup happen first, against the index, and the
+ * join then enriches exactly 20 rows. Same results, ~500x faster.
+ *
+ * `npm test -- memory` asserts the plan, so a future refactor that
+ * reintroduces the flat form fails the suite instead of silently regressing.
  */
 export const CANDIDATE_QUERY = `
-  SELECT nv.id           AS variant_id,
-         nv.entity_id    AS entity_id,
-         nv.variant_text AS variant_text,
-         nv.variant_kind AS variant_kind,
+  WITH nearest AS (
+    SELECT id, entity_id, variant_text, variant_kind, (embedding <-> $2) AS distance
+    FROM name_variant
+    WHERE jurisdiction = $1
+    ORDER BY embedding <-> $2
+    LIMIT $3
+  )
+  SELECT n.id           AS variant_id,
+         n.entity_id    AS entity_id,
+         n.variant_text AS variant_text,
+         n.variant_kind AS variant_kind,
          we.primary_name AS primary_name,
          we.dob          AS dob,
          we.nationality  AS nationality,
          we.source_list  AS source_list,
          we.source_ref   AS source_ref,
-         (nv.embedding <-> $2)::STRING AS distance
-  FROM name_variant nv
-  JOIN watchlist_entity we ON we.id = nv.entity_id
-  WHERE nv.jurisdiction = $1
-  ORDER BY nv.embedding <-> $2
-  LIMIT $3
+         n.distance::STRING AS distance
+  FROM nearest n
+  JOIN watchlist_entity we ON we.id = n.entity_id
+  ORDER BY n.distance
 `;
 
 export async function searchCandidates(

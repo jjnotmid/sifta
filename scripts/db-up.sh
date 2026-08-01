@@ -45,7 +45,7 @@ if command -v docker >/dev/null 2>&1 && docker info >/dev/null 2>&1; then
   docker compose -f "$REPO_ROOT/docker-compose.yml" up -d
   wait_for_sql docker exec sifta-crdb cockroach sql --insecure
   docker exec sifta-crdb cockroach sql --insecure \
-    -e 'CREATE DATABASE IF NOT EXISTS sifta'
+    -e 'CREATE DATABASE IF NOT EXISTS sifta; CREATE DATABASE IF NOT EXISTS sifta_test'
   echo "==> Ready: postgresql://root@localhost:26257/sifta?sslmode=disable"
   exit 0
 fi

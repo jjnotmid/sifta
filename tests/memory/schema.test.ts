@@ -5,7 +5,11 @@ import { migrate } from '../../src/memory/migrate.js';
 import { applyEmbeddingDimensions, splitStatements } from '../../src/memory/migrate.js';
 import { closePool, getPool } from '../../src/memory/pool.js';
 import { decodeVector, encodeVector } from '../../src/memory/vector.js';
-import { insertVariants, searchCandidates } from '../../src/memory/variants.js';
+import {
+  CANDIDATE_QUERY,
+  insertVariants,
+  searchCandidates,
+} from '../../src/memory/variants.js';
 import { upsertEntity } from '../../src/memory/watchlist.js';
 import { createAlert } from '../../src/memory/alerts.js';
 import { recordDecision } from '../../src/memory/decisions.js';
@@ -216,6 +220,23 @@ describe('vector search', () => {
     // claim the submission makes on camera.
     expect(plan).toMatch(/prefix spans: \[\/'NG' - \/'NG'\]/);
     // A full table scan would mean the index was ignored.
+    expect(plan).not.toContain('FULL SCAN');
+  });
+
+  it('the production candidate query itself uses the vector index', async () => {
+    // Regression guard. Written as a flat SELECT joining watchlist_entity,
+    // this query costs the join against a 250k-row table and silently
+    // abandons the vector index for a FULL SCAN — correct results, ~500x
+    // slower, and nothing fails loudly. The CTE form is load-bearing.
+    const { rows } = await getPool().query<{ info: string }>(
+      `EXPLAIN ${CANDIDATE_QUERY}`,
+      ['NG', encodeVector(vec('CHUKWUEMEKA OKAFOR')), 20],
+    );
+    const plan = rows.map((r) => r.info).join('\n');
+
+    expect(plan).toContain('vector search');
+    expect(plan).toContain('name_variant@name_vec_idx');
+    expect(plan).toMatch(/prefix spans: \[\/'NG' - \/'NG'\]/);
     expect(plan).not.toContain('FULL SCAN');
   });
 });

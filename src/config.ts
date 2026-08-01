@@ -22,8 +22,21 @@ if (!Number.isInteger(EMBEDDING_DIMENSIONS) || EMBEDDING_DIMENSIONS <= 0) {
 export const DATABASE_URL =
   process.env.DATABASE_URL ?? 'postgresql://root@localhost:26257/sifta?sslmode=disable';
 
-/** Jurisdictions seeded for the demo. Every vector index is prefixed by one. */
-export const JURISDICTIONS = ['NG', 'GH', 'KE'] as const;
+/**
+ * Vector-index partitions.
+ *
+ * A watchlist entity is filed under the jurisdiction implied by its own
+ * nationality, falling back to GLOBAL. Against the real OFAC SDN list that
+ * yields roughly GLOBAL=19,125 NG=29 KE=25 GH=2.
+ *
+ * These are therefore a LOCALITY OPTIMISATION on the vector index, not a
+ * compliance filter. A screen scans every partition and merges the results —
+ * a Nigerian fintech is obliged to screen against the entire list, and a
+ * search scoped to NG alone would check 29 entities and miss 19,152. The
+ * single-partition EXPLAIN still demonstrates that the prefix bounds a scan;
+ * see ARCHITECTURE.md.
+ */
+export const JURISDICTIONS = ['NG', 'GH', 'KE', 'GLOBAL'] as const;
 export type Jurisdiction = (typeof JURISDICTIONS)[number];
 
 export const DEFAULT_JURISDICTION: Jurisdiction = 'NG';
