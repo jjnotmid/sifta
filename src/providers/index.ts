@@ -9,6 +9,15 @@ export {
   textResponse,
   toolUseResponse,
 } from './mock.js';
+export { BedrockProvider, TitanEmbeddingProvider } from './bedrock.js';
+export { GroqProvider } from './groq.js';
+export { LocalEmbeddingProvider } from './local.js';
+
+// Real providers are constructed lazily inside the factories below, so
+// importing this module never requires AWS or Groq credentials to be present.
+import { BedrockProvider, TitanEmbeddingProvider } from './bedrock.js';
+import { GroqProvider } from './groq.js';
+import { LocalEmbeddingProvider } from './local.js';
 
 /**
  * Provider selection, by env var only.
@@ -33,9 +42,15 @@ export function getEmbeddingProvider(): EmbeddingProvider {
     case 'mock':
       embeddingProvider = new MockEmbeddingProvider(EMBEDDING_DIMENSIONS);
       break;
+    case 'titan':
+      embeddingProvider = new TitanEmbeddingProvider();
+      break;
+    case 'local':
+      embeddingProvider = new LocalEmbeddingProvider();
+      break;
     default:
       throw new Error(
-        `EMBEDDING_PROVIDER='${name}' is not wired up yet (arrives in phase 6). Use 'mock'.`,
+        `EMBEDDING_PROVIDER='${name}' is not recognised. Use mock, titan or local.`,
       );
   }
   return embeddingProvider;
@@ -49,10 +64,14 @@ export function getLLMProvider(): LLMProvider {
     case 'mock':
       llmProvider = new MockLLMProvider();
       break;
+    case 'bedrock':
+      llmProvider = new BedrockProvider();
+      break;
+    case 'groq':
+      llmProvider = new GroqProvider();
+      break;
     default:
-      throw new Error(
-        `PROVIDER='${name}' is not wired up yet (arrives in phase 6). Use 'mock'.`,
-      );
+      throw new Error(`PROVIDER='${name}' is not recognised. Use mock, bedrock or groq.`);
   }
   return llmProvider;
 }

@@ -198,3 +198,223 @@ The Sanctions List Service 302s to an S3 bucket in `us-gov-west-1` that the
 build machine's resolver could not resolve. `download.ts` falls back to public
 DNS (1.1.1.1 / 8.8.8.8) on lookup failure — without it `npm run ingest:ofac`
 dies with a bare `ENOTFOUND` on an otherwise working connection.
+
+---
+
+## Phase 3 — Name variant generation
+
+**Gate:** `npm run ingest:variants && npm test -- variants` → exit 0 ✅
+(33 tests). **257,792** variants embedded across the individual entities.
+
+**Built**
+
+`src/ingest/variants.ts` — six rules, each a separately named and separately
+tested function, per PRD §9:
+
+1. `generateReorderings` — surname-first/surname-last permutations.
+2. `generateDeaccented` — NFD normalisation with combining marks stripped.
+3. `generateTransliterations` — driven by `data/translit-rules.json`
+   (**20** seeded Yoruba/Igbo/Hausa alternations: `kw`↔`ku`, `ch`↔`c`,
+   doubled-vowel collapse, and so on).
+4. `generateShortenings` — driven by `data/name-shortenings.json`
+   (**73** seeded traditional contractions: Chukwuemeka→Emeka,
+   Oluwaseun→Seun, Oluwafemi→Femi …).
+5. `generateInitialised` — middle names reduced to initials.
+6. `generateDropped` — middle name removed entirely.
+
+Both JSON files carry a `_README` key stating that they are seeds for the
+project owner to expand, which is why they are structured as data rather than
+inlined as constants.
+
+**Judgement calls**
+
+- **`MAX_VARIANTS_PER_NAME = 100`.** The rules compose combinatorially, and a
+  seven-token Arabic name with four aliases can generate thousands of strings.
+  Past ~100 the marginal variant is noise that costs an embedding, a row, and
+  index recall. The cap is a named constant, not a magic number.
+- **Generation is deterministic and de-duplicated per entity.** Same input,
+  same variant set, in the same order — asserted, because the eval's
+  reproducibility claim rests on it.
+- **Only individuals get generated variants**, honouring PRD §9's scoping of
+  entity resolution. The 9,840 companies and 1,524 vessels from Phase 2 remain
+  screenable by their primary name and published aliases.
+- **Single-token names do not crash the reorderer** — the degenerate case is
+  tested, because OFAC contains mononyms.
+
+---
+
+## Phase 4 — Screening engine and the evaluation harness
+
+**Gate:** `npm run eval` → exit 0, writes `eval/results.md` with a populated
+table ✅
+
+**Built**
+
+- `src/screening/index.ts` — embeds a subject name, vector-searches candidates
+  across partitions, returns ranked results with L2 distances.
+  `DEFAULT_MATCH_THRESHOLD = 0.35`.
+- `src/eval/jaro-winkler.ts` — the baseline. **Token-aware**, so name
+  reordering costs it nothing ("Joshua Usifoh" vs "Usifoh Joshua" scores 1.0).
+- `src/eval/corpus.ts` — both corpora, from fixed-seed PRNGs
+  (`POSITIVE_SEED`, `NEGATIVE_SEED`) so two runs produce identical numbers.
+- `data/nigerian-names.json` — **84 given names and 78 surnames** across
+  Yoruba, Igbo and Hausa (PRD asked for 60/60).
+
+**The headline number, and why it was rewritten**
+
+The first version of this table reported each system at *its own* preferred
+threshold. That is not a comparison. Any matcher can buy recall with false
+positives, and reporting the baseline at the threshold where it flags
+essentially every name inflated Sifta's advantage rather than measuring it.
+
+The harness now holds **both systems to the same recall** — the baseline's own
+ceiling — and compares the noise:
+
+| | Jaro-Winkler baseline | Sifta |
+|---|---|---|
+| Recall (of 200 known hits) | 81.5% | 88.0% |
+| False positives (of 5,000) | 2,643 | 92 |
+| Precision | 5.8% | 65.7% |
+
+**False-positive reduction at matched recall: 96.5%.**
+
+The baseline **never reaches 95% recall at any threshold** — its ceiling is
+81.5%, because the remaining spellings differ by more than character edits.
+That is stated in `results.md` rather than worked around. Sifta at its own
+operating point reaches 95.0% recall with 290 false positives.
+
+**Judgement calls**
+
+- **Every positive gets a variant transformation *plus* a character typo.**
+  Without the typo the test string would appear verbatim in Sifta's own index
+  and the eval would prove only that the pipeline is self-consistent. With it,
+  the string is in neither system's index: Sifta must generalise from a near
+  neighbour and the baseline must absorb the same noise.
+- **The baseline is not a strawman.** It gets the full published alias list
+  (43,728 names) and is token-aware. The only thing it lacks is generated
+  variants — which is precisely the variable under test.
+- **Negatives are cross-checked against the live watchlist and discarded on a
+  genuine collision** (21 discarded this run), so a false positive is the
+  matcher's noise rather than a real hit mislabelled.
+
+---
+
+## Phase 5 — Agent loop and memory recall
+
+**Gate:** `npm test -- agent` → exit 0 ✅ (13 tests)
+
+**Built**
+
+`src/agent/` — a tool-use loop over the `LLMProvider` interface with the five
+PRD §7 tools: `search_watchlist`, `recall_prior_decisions`,
+`get_counterparty_history`, `compare_identifiers`, `propose_disposition`.
+
+**The compliance boundary is structural, not prompted**
+
+The agent **proposes**; a human **disposes**. A proposed HIT always routes to
+human review, and the agent has no path to writing a final HIT disposition —
+that is enforced by the loop's control flow and by the Phase 1 grant (the
+`sifta_app` role holds `SELECT, INSERT` on `decision` and nothing else), not
+by an instruction in the system prompt that a model could talk itself out of.
+Tested directly: *"never writes a disposition to the ledger by itself"* and
+*"routes a proposed HIT to human review rather than disposing it"*.
+
+**Memory is consulted before the model, not by it**
+
+`recall_prior_decisions` is exposed as a tool, but the short-circuit does not
+depend on the model choosing to call it. If the subject key has a prior
+CLEARED decision and the evidence is unchanged, the alert is disposed from the
+ledger **with no LLM call at all** — the cheapest possible path, and the
+product thesis. The recall survives name reordering because `subjectKey()`
+sorts tokens (Phase 1).
+
+**What blocks an auto-clear** — each its own test:
+
+- a different date of birth on the subject,
+- the subject now matching an unadjudicated entity,
+- absent evidence, which is treated as *unknown* and never as exculpatory.
+
+**Failure handling**
+
+- A mid-loop LLM failure leaves the investigation `RECOVERABLE`, not corrupt.
+- A failing tool is reported back to the model, which can adapt, rather than
+  aborting the investigation.
+- A model that ends its turn without proposing hands over to a human.
+- `appendToolStep` writes via jsonb concatenation inside the `UPDATE`, so a
+  crash mid-loop cannot lose or duplicate a trace step.
+
+---
+
+## Phase 6 — Real providers and MCP
+
+**Gate:** `npm test` with `PROVIDER=mock` → exit 0 ✅
+**106 passed, 3 skipped.** The 3 skipped are the real-provider integration
+tests, skipped rather than failed because credentials are absent — see
+`BLOCKERS.md` #3.
+
+**Built**
+
+- `src/providers/bedrock.ts` — `BedrockProvider` via **`ConverseCommand`**, and
+  `TitanEmbeddingProvider` via Titan Text Embeddings V2. Bedrock types tool
+  input as a non-exported recursive `DocumentType`; the aliases at the top of
+  the file recover it from the shapes that *are* exported rather than reaching
+  for `any` (the tech constraints forbid `any` outside tests).
+- `src/providers/groq.ts` — `GroqProvider`, the throttling fallback.
+- `src/providers/local.ts` — `LocalEmbeddingProvider`, Transformers.js
+  `all-MiniLM-L6-v2` at 384 dims. `@xenova/transformers` is an **optional**
+  dependency imported through a non-literal specifier, so the ONNX runtime is
+  not a required download and a missing package produces an error naming the
+  install command.
+- `src/mcp/` — MCP client for the CockroachDB Cloud Managed MCP Server.
+
+**Dimensions are one constant, as required**
+
+Titan is 1024, MiniLM is 384. Both providers negotiate against
+`EMBEDDING_DIMENSIONS` in `src/config.ts` — the same constant the migration
+rewrites every `VECTOR(n)` literal from. `LocalEmbeddingProvider` throws at
+**construction** if the schema was built for a different width, with the fix in
+the message, rather than failing on an insert several hundred thousand rows
+into an ingest.
+
+**MCP read-only is enforced on our side**
+
+The PRD asks for a read-only connection. The server is asked for one (a
+`read-only` mode header), but is not *trusted* for it. `src/mcp/readonly.ts`
+re-decides every tool locally, at both discovery and call time:
+
+1. **DENY wins** — any tool whose name tokenises to a mutating verb is
+   rejected *even if the server annotates it `readOnlyHint: true`*.
+2. **Then ALLOW** — a tool must be annotated read-only or match the
+   schema-exploration vocabulary. Unknown and unannotated tools are dropped.
+
+An MCP server is a remote party whose tool list changes between deploys, and
+the thing choosing tool names is a language model. A connection that is
+read-only only because the far end said so is one misconfiguration away from
+letting an LLM run DDL against a customer's cluster. The load-bearing test is
+*"DENY beats a server that annotates a destructive tool as read-only"*.
+
+MCP tools are exposed to the agent under a `crdb_` prefix so they can never
+shadow one of the five PRD tools.
+
+**Degradation, not failure**
+
+Absent `CRDB_MCP_API_KEY`, `connect()` returns `{status: 'unavailable'}` with a
+reason — it does not throw. The agent runs with its five built-in tools.
+Provider selection is env-var-only, so "Bedrock access is still pending" or
+"Bedrock is throttling us" is a one-line config change, not a refactor.
+
+**One asymmetry worth naming:** Bedrock constructs fine without credentials
+(the AWS SDK resolves them per-request), while Groq throws at construction on
+a missing `GROQ_API_KEY`. That is deliberate and tested both ways — Groq has
+one credential and no resolver chain, so an absent key is a startup-time
+configuration error the operator should learn about immediately, not halfway
+through an investigation.
+
+**Deferred**
+
+- `src/mcp/` has no live integration test; the read-only gate is tested
+  exhaustively offline. See `BLOCKERS.md` #3.
+- The Bedrock default model ID stays on the dated `us.anthropic.…` inference
+  profile format, which is the correct identifier shape for the
+  `ConverseCommand` path the PRD specifies. It is overridable via
+  `BEDROCK_MODEL_ID`.
