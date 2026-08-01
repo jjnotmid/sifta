@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Agentic AML investigation memory for African financial institutions",
   "license": "MIT",
-  "author": "Usifoh Joshua",
+  "author": "Usifoh Joshua Eseosa",
   "type": "module",
   "engines": {
     "node": ">=20"
