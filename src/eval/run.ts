@@ -41,8 +41,29 @@ export interface ThresholdPoint {
 export interface SystemResult {
   name: string;
   sweep: ThresholdPoint[];
-  /** Operating point: the threshold reported in the headline table. */
+  /** Best point achieving the target recall, or highest recall if unreachable. */
   operating: ThresholdPoint;
+  /** Highest recall this system reaches at any threshold. */
+  maxRecall: number;
+  /** True when no threshold reaches the target recall. */
+  targetUnreachable: boolean;
+}
+
+/**
+ * The fair comparison: both systems held to the SAME recall, then judged on
+ * false positives.
+ *
+ * Comparing each system at its own preferred threshold is not a comparison at
+ * all — a matcher can always buy recall with false positives, and the baseline
+ * bottoms out at a threshold where it flags essentially everything. Fixing
+ * recall and reading off the noise is the only version of this number that
+ * means anything.
+ */
+export interface MatchedRecallComparison {
+  /** Recall both systems are held to — the baseline's own ceiling. */
+  target: number;
+  baseline: ThresholdPoint;
+  sifta: ThresholdPoint;
 }
 
 export interface EvalResult {
@@ -54,6 +75,8 @@ export interface EvalResult {
   siftaVariants: number;
   baseline: SystemResult;
   sifta: SystemResult;
+  /** The headline: both systems held to the same recall. */
+  matched: MatchedRecallComparison;
   transformBreakdown: Record<string, { total: number; caughtBySifta: number; caughtByBaseline: number }>;
   elapsedSeconds: number;
 }
@@ -233,7 +256,27 @@ function chooseOperating(sweepPoints: ThresholdPoint[], targetRecall: number): T
   if (qualifying.length > 0) {
     return qualifying.reduce((best, p) => (p.falsePositives < best.falsePositives ? p : best));
   }
-  return sweepPoints.reduce((best, p) => (p.recall > best.recall ? p : best));
+  // Target unreachable. Report the highest recall achieved, breaking ties
+  // toward fewer false positives — otherwise a system that cannot reach the
+  // target gets reported at the threshold where it flags everything, which
+  // exaggerates the gap rather than measuring it.
+  const best = sweepPoints.reduce((acc, p) => (p.recall > acc.recall ? p : acc));
+  return sweepPoints
+    .filter((p) => p.recall === best.recall)
+    .reduce((acc, p) => (p.falsePositives < acc.falsePositives ? p : acc));
+}
+
+/** Fewest false positives among thresholds reaching `recall`. */
+function bestAtRecall(sweepPoints: ThresholdPoint[], recall: number): ThresholdPoint {
+  const qualifying = sweepPoints.filter((p) => p.recall >= recall - 1e-9);
+  if (qualifying.length === 0) {
+    return sweepPoints.reduce((acc, p) => (p.recall > acc.recall ? p : acc));
+  }
+  return qualifying.reduce((acc, p) => (p.falsePositives < acc.falsePositives ? p : acc));
+}
+
+function maxRecallOf(sweepPoints: ThresholdPoint[]): number {
+  return sweepPoints.reduce((acc, p) => Math.max(acc, p.recall), 0);
 }
 
 export interface RunOptions {
@@ -300,6 +343,14 @@ export async function runEval(options: RunOptions = {}): Promise<EvalResult> {
   const siftaOperating = chooseOperating(siftaSweep, targetRecall);
   const baselineOperating = chooseOperating(baselineSweep, targetRecall);
 
+  // Hold both systems to the baseline's own ceiling and compare the noise.
+  const matchedTarget = maxRecallOf(baselineSweep);
+  const matched: MatchedRecallComparison = {
+    target: matchedTarget,
+    baseline: bestAtRecall(baselineSweep, matchedTarget),
+    sifta: bestAtRecall(siftaSweep, matchedTarget),
+  };
+
   // --- Which transformations each system survives -------------------------
   const transformBreakdown: EvalResult['transformBreakdown'] = {};
   positives.forEach((testCase: PositiveCase, i) => {
@@ -322,8 +373,21 @@ export async function runEval(options: RunOptions = {}): Promise<EvalResult> {
     watchlistEntities: Number(counts[0]!.entities),
     baselineNames: index.names.length,
     siftaVariants: Number(counts[0]!.variants),
-    baseline: { name: 'Jaro-Winkler baseline', sweep: baselineSweep, operating: baselineOperating },
-    sifta: { name: 'Sifta', sweep: siftaSweep, operating: siftaOperating },
+    baseline: {
+      name: 'Jaro-Winkler baseline',
+      sweep: baselineSweep,
+      operating: baselineOperating,
+      maxRecall: maxRecallOf(baselineSweep),
+      targetUnreachable: maxRecallOf(baselineSweep) < targetRecall,
+    },
+    sifta: {
+      name: 'Sifta',
+      sweep: siftaSweep,
+      operating: siftaOperating,
+      maxRecall: maxRecallOf(siftaSweep),
+      targetUnreachable: maxRecallOf(siftaSweep) < targetRecall,
+    },
+    matched,
     transformBreakdown,
     elapsedSeconds: (Date.now() - started) / 1000,
   };
