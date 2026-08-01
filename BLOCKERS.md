@@ -5,6 +5,24 @@ needed to resolve it. Entries stay after resolution, marked as such.
 
 ---
 
+## 0. OWNER ACTION — make the repo public before submitting
+
+**Not a blocker for the build. It is pass/fail for the hackathon.**
+
+`github.com/jjnotmid/sifta` is currently **private**, by request, and is being
+pushed to after every passing gate.
+
+Stage One of judging is pass/fail on a **public** repo with the MIT LICENSE
+visible in the GitHub About section. The LICENSE is committed and GitHub
+already detects it as MIT, so the only remaining step is the visibility flip:
+
+    gh repo edit jjnotmid/sifta --visibility public --accept-visibility-change-consequences
+
+Do this before **17 August 2026**, then confirm "MIT license" appears in the
+right-hand About panel on the repo page.
+
+---
+
 ## 1. Docker not installed on the build machine — WORKED AROUND
 
 **Phase:** 0 (discovered), 1 (worked around)

@@ -1,0 +1,3594 @@
+<?xml version="1.0" standalone="yes"?>
+<sdnList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/XML">
+  <publshInformation>
+    <Publish_Date>07/30/2026</Publish_Date>
+    <Record_Count>19181</Record_Count>
+  </publshInformation>
+    <sdnEntry>
+    <uid>13108</uid>
+    <firstName>Ali Abbas Usman</firstName>
+    <lastName>JEGA</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+      <program>IFSR</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>186083</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+      <id>
+        <uid>114214</uid>
+        <idType>Additional Sanctions Information -</idType>
+        <idNumber>Subject to Secondary Sanctions</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>14741</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JEGA</lastName>
+        <firstName>Abbas</firstName>
+      </aka>
+      <aka>
+        <uid>14742</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HASSAN</lastName>
+        <firstName>Ali Abbas Othman</firstName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>20947</uid>
+        <address1>6B Nouakchott Street</address1>
+        <address2>Wuse Zone 1</address2>
+        <city>Abuja</city>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+    <nationalityList>
+      <nationality>
+        <uid>8992</uid>
+        <country>Nigeria</country>
+        <mainEntry>true</mainEntry>
+      </nationality>
+    </nationalityList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>8993</uid>
+        <dateOfBirth>1965</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>15009</uid>
+    <firstName>Abubakar</firstName>
+    <lastName>SHEKAU</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>186101</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>21988</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>BIN MOHAMMED</lastName>
+        <firstName>Abu Mohammed Abubakar</firstName>
+      </aka>
+      <aka>
+        <uid>21989</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>SHEKAU</lastName>
+      </aka>
+      <aka>
+        <uid>21990</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>BI MUHAMMED</lastName>
+        <firstName>Abu Muhammed Abubakar</firstName>
+      </aka>
+      <aka>
+        <uid>21991</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>SHEHU</lastName>
+      </aka>
+      <aka>
+        <uid>21992</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>SHAYKU</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>21635</uid>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>11282</uid>
+        <dateOfBirth>1969</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>11283</uid>
+        <placeOfBirth>Shekau Village, Yobe State, Nigeria</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>15010</uid>
+    <firstName>Abubakar Adam</firstName>
+    <lastName>KAMBAR</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>186102</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>21994</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>YASIR</lastName>
+        <firstName>Abu</firstName>
+      </aka>
+      <aka>
+        <uid>21995</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>KAMBAR</lastName>
+        <firstName>Abubakar</firstName>
+      </aka>
+      <aka>
+        <uid>21996</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>KAMBAR</lastName>
+        <firstName>Abu Yasir</firstName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>21637</uid>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>11284</uid>
+        <dateOfBirth>1977</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>11285</uid>
+        <placeOfBirth>Maiduguri, Nigeria</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>15011</uid>
+    <firstName>Khalid</firstName>
+    <lastName>AL-BARNAWI</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>186103</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>21998</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>BARNAWI</lastName>
+        <firstName>Khalid</firstName>
+      </aka>
+      <aka>
+        <uid>21999</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-BARNAWI</lastName>
+        <firstName>Khaled</firstName>
+      </aka>
+      <aka>
+        <uid>22000</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>EL-BARNAOUI</lastName>
+        <firstName>Khaled</firstName>
+      </aka>
+      <aka>
+        <uid>22001</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HAFSAT</lastName>
+        <firstName>Abu</firstName>
+      </aka>
+      <aka>
+        <uid>22009</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>USMAN</lastName>
+        <firstName>Mohammed</firstName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>21639</uid>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>11286</uid>
+        <dateOfBirth>1976</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>11287</uid>
+        <placeOfBirth>Maiduguri, Nigeria</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>16363</uid>
+    <lastName>BOKO HARAM</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>FTO</program>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>186723</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>24666</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>NIGERIAN TALIBAN</lastName>
+      </aka>
+      <aka>
+        <uid>24667</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMA'ATU AHLUS-SUNNAH LIDDA'AWATI WAL JIHAD</lastName>
+      </aka>
+      <aka>
+        <uid>24668</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMA'ATU AHLIS SUNNA LIDDA'AWATI WAL-JIHAD</lastName>
+      </aka>
+      <aka>
+        <uid>24669</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>PEOPLE COMMITTED TO THE PROPHET'S TEACHINGS FOR PROPAGATION AND JIHAD</lastName>
+      </aka>
+      <aka>
+        <uid>24670</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>SUNNI GROUP FOR PREACHING AND JIHAD</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>24704</uid>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>16364</uid>
+    <lastName>ANSARU</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>FTO</program>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>186724</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>24672</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMA'ATU ANSARUL MUSLIMINA FI BILADIS-SUDAN</lastName>
+      </aka>
+      <aka>
+        <uid>24673</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ANSARUL MUSLIMINA FI BILADIS SUDAN</lastName>
+      </aka>
+      <aka>
+        <uid>24674</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>VANGUARDS FOR THE PROTECTION OF MUSLIMS IN BLACK AFRICA</lastName>
+      </aka>
+      <aka>
+        <uid>24675</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>JAMBS</lastName>
+      </aka>
+      <aka>
+        <uid>24676</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMA'ATU ANSARIL MUSLIMINA FI BILADIS SUDAN</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>24706</uid>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>16452</uid>
+    <firstName>Mustapha Reda Darwish</firstName>
+    <lastName>FAWAZ</lastName>
+    <sdnType>Individual</sdnType>
+    <remarks>(Linked To: HIZBALLAH)</remarks>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>10019</uid>
+        <idType>Passport</idType>
+        <idNumber>RL 2101602</idNumber>
+        <idCountry>Lebanon</idCountry>
+      </id>
+      <id>
+        <uid>10020</uid>
+        <idType>Passport</idType>
+        <idNumber>RL 0148105</idNumber>
+        <idCountry>Lebanon</idCountry>
+      </id>
+      <id>
+        <uid>10021</uid>
+        <idType>Passport</idType>
+        <idNumber>0168459</idNumber>
+        <idCountry>Sierra Leone</idCountry>
+      </id>
+      <id>
+        <uid>10022</uid>
+        <idType>Passport</idType>
+        <idNumber>0257909</idNumber>
+        <idCountry>Sierra Leone</idCountry>
+      </id>
+      <id>
+        <uid>10023</uid>
+        <idType>SSN</idType>
+        <idNumber>418-15-2837</idNumber>
+        <idCountry>United States</idCountry>
+      </id>
+      <id>
+        <uid>186729</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+      <id>
+        <uid>116886</uid>
+        <idType>Gender</idType>
+        <idNumber>Male</idNumber>
+      </id>
+      <id>
+        <uid>120186</uid>
+        <idType>Additional Sanctions Information -</idType>
+        <idNumber>Subject to Secondary Sanctions Pursuant to the Hizballah Financial Sanctions Regulations</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>27402</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWWAZ</lastName>
+        <firstName>Mustafa</firstName>
+      </aka>
+      <aka>
+        <uid>27403</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>DARWISH-FAWAZ</lastName>
+        <firstName>Moustafa Reda</firstName>
+      </aka>
+      <aka>
+        <uid>27404</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Mustapha</firstName>
+      </aka>
+      <aka>
+        <uid>27405</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Mustapha Rida Darwich</firstName>
+      </aka>
+      <aka>
+        <uid>27406</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Mostafa Reda Darwich</firstName>
+      </aka>
+      <aka>
+        <uid>27408</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Moustapha</firstName>
+      </aka>
+      <aka>
+        <uid>27409</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Mustafa</firstName>
+      </aka>
+      <aka>
+        <uid>27410</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Mustafa Darwish</firstName>
+      </aka>
+      <aka>
+        <uid>27462</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Mustapha Rhoda Darwich</firstName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>26947</uid>
+        <address1>Flat 4, Blantyre Street</address1>
+        <address2>Behind Amigo Supermarket</address2>
+        <address3>Wuse II</address3>
+        <city>Abuja</city>
+        <country>Nigeria</country>
+      </address>
+      <address>
+        <uid>26948</uid>
+        <address1>3 Gaya Road</address1>
+        <city>Kano</city>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+    <citizenshipList>
+      <citizenship>
+        <uid>16884</uid>
+        <country>Lebanon</country>
+        <mainEntry>true</mainEntry>
+      </citizenship>
+      <citizenship>
+        <uid>16885</uid>
+        <country>Nigeria</country>
+        <mainEntry>false</mainEntry>
+      </citizenship>
+      <citizenship>
+        <uid>16918</uid>
+        <country>Sierra Leone</country>
+        <mainEntry>false</mainEntry>
+      </citizenship>
+    </citizenshipList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>16887</uid>
+        <dateOfBirth>25 Jun 1964</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>16888</uid>
+        <dateOfBirth>10 Sep 1964</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>16889</uid>
+        <placeOfBirth>Jwaya, Lebanon</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+      <placeOfBirthItem>
+        <uid>16890</uid>
+        <placeOfBirth>Koidu Town, Sierra Leone</placeOfBirth>
+        <mainEntry>false</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>17768</uid>
+    <lastName>AMIGO SUPERMARKET LIMITED</lastName>
+    <sdnType>Entity</sdnType>
+    <remarks>(Linked To: FAWAZ, Mustapha Reda Darwish; Linked To: FAWAZ, Fouzi Reda Darwish)</remarks>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>120189</uid>
+        <idType>Additional Sanctions Information -</idType>
+        <idNumber>Subject to Secondary Sanctions Pursuant to the Hizballah Financial Sanctions Regulations</idNumber>
+      </id>
+      <id>
+        <uid>186426</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>27398</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AMIGO SUPERMARKET</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>26942</uid>
+        <address1>1023, Adetokunbo Ademola Crescent</address1>
+        <address2>Wuse II</address2>
+        <city>Abuja</city>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>17769</uid>
+    <lastName>WONDERLAND AMUSEMENT PARK AND RESORT LTD</lastName>
+    <sdnType>Entity</sdnType>
+    <remarks>(Linked To: FAWAZ, Mustapha Reda Darwish; Linked To: FAWAZ, Fouzi Reda Darwish)</remarks>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>186427</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+      <id>
+        <uid>120190</uid>
+        <idType>Additional Sanctions Information -</idType>
+        <idNumber>Subject to Secondary Sanctions Pursuant to the Hizballah Financial Sanctions Regulations</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>27400</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>WONDERLAND AMUSEMENT PARK</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>26944</uid>
+        <address1>B1 Kukbawa</address1>
+        <address2>Opposite National Stadium</address2>
+        <city>Abuja</city>
+        <stateOrProvince>FCT</stateOrProvince>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>17770</uid>
+    <lastName>KAFAK ENTERPRISES LIMITED</lastName>
+    <sdnType>Entity</sdnType>
+    <remarks>(Linked To: FAWAZ, Mustapha Reda Darwish; Linked To: FAWAZ, Fouzi Reda Darwish)</remarks>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>120191</uid>
+        <idType>Additional Sanctions Information -</idType>
+        <idNumber>Subject to Secondary Sanctions Pursuant to the Hizballah Financial Sanctions Regulations</idNumber>
+      </id>
+      <id>
+        <uid>186428</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <addressList>
+      <address>
+        <uid>26946</uid>
+        <address1>88B, T/Balewa Road</address1>
+        <stateOrProvince>Kano State</stateOrProvince>
+        <country>Nigeria</country>
+      </address>
+      <address>
+        <uid>26988</uid>
+        <country>Sierra Leone</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>17771</uid>
+    <firstName>Fouzi Reda Darwish</firstName>
+    <lastName>FAWAZ</lastName>
+    <sdnType>Individual</sdnType>
+    <remarks>(Linked To: HIZBALLAH)</remarks>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>10024</uid>
+        <idType>Passport</idType>
+        <idNumber>0107516</idNumber>
+        <idCountry>Lebanon</idCountry>
+      </id>
+      <id>
+        <uid>10025</uid>
+        <idType>Passport</idType>
+        <idNumber>0258649</idNumber>
+      </id>
+      <id>
+        <uid>188761</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+      <id>
+        <uid>120187</uid>
+        <idType>Additional Sanctions Information -</idType>
+        <idNumber>Subject to Secondary Sanctions Pursuant to the Hizballah Financial Sanctions Regulations</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>27412</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>DARWISH-FAWAZ</lastName>
+        <firstName>Fouzi Reda</firstName>
+      </aka>
+      <aka>
+        <uid>27413</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Fawzi Reda</firstName>
+      </aka>
+      <aka>
+        <uid>27414</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Fawzy</firstName>
+      </aka>
+      <aka>
+        <uid>27415</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWWAZ</lastName>
+        <firstName>Fawzi</firstName>
+      </aka>
+      <aka>
+        <uid>27416</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAWAZ</lastName>
+        <firstName>Fowzy</firstName>
+      </aka>
+      <aka>
+        <uid>27417</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>DARWISH-FAWAZ</lastName>
+        <firstName>Fawzy Reda</firstName>
+      </aka>
+    </akaList>
+    <citizenshipList>
+      <citizenship>
+        <uid>16920</uid>
+        <country>Lebanon</country>
+        <mainEntry>true</mainEntry>
+      </citizenship>
+      <citizenship>
+        <uid>16921</uid>
+        <country>Nigeria</country>
+        <mainEntry>false</mainEntry>
+      </citizenship>
+      <citizenship>
+        <uid>16922</uid>
+        <country>Sierra Leone</country>
+        <mainEntry>false</mainEntry>
+      </citizenship>
+    </citizenshipList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>16892</uid>
+        <dateOfBirth>12 Feb 1968</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>16893</uid>
+        <dateOfBirth>24 Mar 1973</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>16891</uid>
+        <placeOfBirth>Jwaya, Lebanon</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+      <placeOfBirthItem>
+        <uid>16919</uid>
+        <placeOfBirth>Sierra Leone</placeOfBirth>
+        <mainEntry>false</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>23845</uid>
+    <lastName>ISIS-WEST AFRICA</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>FTO</program>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>187109</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>37752</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>ISIS-WA</lastName>
+      </aka>
+      <aka>
+        <uid>37753</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISIS WEST AFRICA</lastName>
+      </aka>
+      <aka>
+        <uid>37754</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISIS WEST AFRICA PROVINCE</lastName>
+      </aka>
+      <aka>
+        <uid>37755</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISLAMIC STATE OF IRAQ AND SYRIA WEST AFRICA PROVINCE</lastName>
+      </aka>
+      <aka>
+        <uid>37756</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISLAMIC STATE OF IRAQ AND THE LEVANT-WEST AFRICA</lastName>
+      </aka>
+      <aka>
+        <uid>37757</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>ISIL-WA</lastName>
+      </aka>
+      <aka>
+        <uid>37758</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISLAMIC STATE WEST AFRICA PROVINCE</lastName>
+      </aka>
+      <aka>
+        <uid>37759</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>ISISWAP</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>36118</uid>
+        <country>Nigeria</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>6924</uid>
+    <firstName>Mustafa Mohamed</firstName>
+    <lastName>FADHIL</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>3331</uid>
+        <idType>Serial No.</idType>
+        <idNumber>201735161</idNumber>
+      </id>
+      <id>
+        <uid>3332</uid>
+        <idType>Kenyan ID No.</idType>
+        <idNumber>12773667</idNumber>
+      </id>
+      <id>
+        <uid>185876</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>4833</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ELBISHY</lastName>
+        <firstName>Moustafa Ali</firstName>
+      </aka>
+      <aka>
+        <uid>4834</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MOHAMMED</lastName>
+        <firstName>Mustafa</firstName>
+      </aka>
+      <aka>
+        <uid>4835</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAZUL</lastName>
+        <firstName>Mustafa</firstName>
+      </aka>
+      <aka>
+        <uid>4836</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>HUSSEIN</lastName>
+      </aka>
+      <aka>
+        <uid>4838</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FADIL</lastName>
+        <firstName>Mustafa Muhamad</firstName>
+      </aka>
+      <aka>
+        <uid>4839</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL MASRI</lastName>
+        <firstName>Abd Al Wakil</firstName>
+      </aka>
+      <aka>
+        <uid>4840</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>ANIS, Abu</lastName>
+      </aka>
+      <aka>
+        <uid>4841</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>YUSSRR, Abu</lastName>
+      </aka>
+      <aka>
+        <uid>4842</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALI</lastName>
+        <firstName>Hassan</firstName>
+      </aka>
+      <aka>
+        <uid>4843</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MAN</lastName>
+        <firstName>Nu</firstName>
+      </aka>
+      <aka>
+        <uid>4844</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>KHALID</lastName>
+      </aka>
+      <aka>
+        <uid>4845</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JIHAD</lastName>
+        <firstName>Abu</firstName>
+      </aka>
+      <aka>
+        <uid>4846</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-NUBI</lastName>
+        <firstName>Abu</firstName>
+      </aka>
+    </akaList>
+    <citizenshipList>
+      <citizenship>
+        <uid>1247</uid>
+        <country>Egypt</country>
+        <mainEntry>true</mainEntry>
+      </citizenship>
+      <citizenship>
+        <uid>1248</uid>
+        <country>Kenya</country>
+        <mainEntry>false</mainEntry>
+      </citizenship>
+    </citizenshipList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1245</uid>
+        <dateOfBirth>23 Jun 1976</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1246</uid>
+        <placeOfBirth>Cairo, Egypt</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>6927</uid>
+    <firstName>Fazul Abdullah</firstName>
+    <lastName>MOHAMMED</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185879</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>4870</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAZUL</lastName>
+        <firstName>Abdallah</firstName>
+      </aka>
+      <aka>
+        <uid>4871</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAZUL</lastName>
+        <firstName>Abdalla</firstName>
+      </aka>
+      <aka>
+        <uid>4872</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAZUL</lastName>
+        <firstName>Abdallah Mohammed</firstName>
+      </aka>
+      <aka>
+        <uid>4873</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MOHAMMED</lastName>
+        <firstName>Fazul Abdilahi</firstName>
+      </aka>
+      <aka>
+        <uid>4874</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ADBALLAH</lastName>
+        <firstName>Fazul</firstName>
+      </aka>
+      <aka>
+        <uid>4875</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ABDALLA</lastName>
+        <firstName>Fazul</firstName>
+      </aka>
+      <aka>
+        <uid>4876</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MOHAMMED</lastName>
+        <firstName>Fazul</firstName>
+      </aka>
+      <aka>
+        <uid>4877</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>HAROON</lastName>
+      </aka>
+      <aka>
+        <uid>4878</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>HARUN</lastName>
+      </aka>
+      <aka>
+        <uid>4879</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAZUL</lastName>
+        <firstName>Haroon</firstName>
+      </aka>
+      <aka>
+        <uid>4880</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>FAZUL</lastName>
+        <firstName>Harun</firstName>
+      </aka>
+      <aka>
+        <uid>4881</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MUHAMAD</lastName>
+        <firstName>Fadil Abdallah</firstName>
+      </aka>
+      <aka>
+        <uid>4882</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HAROUN</lastName>
+        <firstName>Fadhil</firstName>
+      </aka>
+      <aka>
+        <uid>4883</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>AL SUDANI, Abu Seif</lastName>
+      </aka>
+      <aka>
+        <uid>4884</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AISHA</lastName>
+        <firstName>Abu</firstName>
+      </aka>
+      <aka>
+        <uid>4885</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>LUQMAN</lastName>
+        <firstName>Abu</firstName>
+      </aka>
+      <aka>
+        <uid>4886</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALI</lastName>
+        <firstName>Fadel Abdallah Mohammed</firstName>
+      </aka>
+      <aka>
+        <uid>4887</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MOHAMMED</lastName>
+        <firstName>Fouad</firstName>
+      </aka>
+    </akaList>
+    <citizenshipList>
+      <citizenship>
+        <uid>1260</uid>
+        <country>Comoros</country>
+        <mainEntry>true</mainEntry>
+      </citizenship>
+      <citizenship>
+        <uid>1261</uid>
+        <country>Kenya</country>
+        <mainEntry>false</mainEntry>
+      </citizenship>
+    </citizenshipList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1258</uid>
+        <dateOfBirth>25 Aug 1972</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>1262</uid>
+        <dateOfBirth>25 Dec 1974</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>1263</uid>
+        <dateOfBirth>25 Feb 1974</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1259</uid>
+        <placeOfBirth>Moroni, Comoros Islands</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>8109</uid>
+    <lastName>AL-HARAMAIN : KENYA BRANCH</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185784</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>6095</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMAIN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6096</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMAIN ISLAMIC FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6097</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMAIN HUMANITARIAN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6098</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMAYN</lastName>
+      </aka>
+      <aka>
+        <uid>6099</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMAYN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6100</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMAYN HUMANITARIAN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6101</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMAYN ISLAMIC FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6102</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMEIN</lastName>
+      </aka>
+      <aka>
+        <uid>6103</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMEIN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6104</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMEIN HUMANITARIAN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6105</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HARAMEIN ISLAMIC FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6106</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMAIN</lastName>
+      </aka>
+      <aka>
+        <uid>6107</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMAIN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6108</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMAIN HUMANITARIAN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6109</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMAIN ISLAMIC FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6110</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMAYN</lastName>
+      </aka>
+      <aka>
+        <uid>6111</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMAYN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6112</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMAYN HUMANITARIAN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6113</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMAYN ISLAMIC FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6114</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMEIN</lastName>
+      </aka>
+      <aka>
+        <uid>6115</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMEIN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6116</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMEIN HUMANITARIAN FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6117</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALHARAMEIN ISLAMIC FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>6118</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MU'ASSASAT AL-HARAMAIN AL-KHAYRIYYA</lastName>
+      </aka>
+      <aka>
+        <uid>6119</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MU'ASSASAT AL-HARAMAYN AL-KHAYRIYYA</lastName>
+      </aka>
+      <aka>
+        <uid>6120</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MU'ASSASAT AL-HARAMEIN AL-KHAYRIYYA</lastName>
+      </aka>
+      <aka>
+        <uid>6121</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>VAZIR</lastName>
+      </aka>
+      <aka>
+        <uid>6122</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>VEZIR</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>7246</uid>
+        <city>Nairobi</city>
+        <country>Kenya</country>
+      </address>
+      <address>
+        <uid>7247</uid>
+        <city>Garissa</city>
+        <country>Kenya</country>
+      </address>
+      <address>
+        <uid>7248</uid>
+        <city>Daddb</city>
+        <country>Kenya</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>8294</uid>
+    <firstName>Sanjivan Singh</firstName>
+    <lastName>RUPRAH</lastName>
+    <sdnType>Individual</sdnType>
+    <remarks>Businessman; Former Deputy Commissioner, Bureau of Maritime Affairs of Liberia</remarks>
+    <programList>
+      <program>DRCONGO</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>2303</uid>
+        <idType>Passport</idType>
+        <idNumber>D-001829-00</idNumber>
+        <idCountry>Liberia</idCountry>
+      </id>
+      <id>
+        <uid>4615</uid>
+        <idType>Passport</idType>
+        <idNumber>790015037</idNumber>
+        <idCountry>United Kingdom</idCountry>
+        <issueDate>10 Jul 1998</issueDate>
+        <expirationDate>10 Jul 2008</expirationDate>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>9751</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>NASR, Samir M.</lastName>
+      </aka>
+    </akaList>
+    <nationalityList>
+      <nationality>
+        <uid>2695</uid>
+        <country>Kenya</country>
+        <mainEntry>true</mainEntry>
+      </nationality>
+    </nationalityList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>2694</uid>
+        <dateOfBirth>09 Aug 1966</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>5161</uid>
+        <placeOfBirth>Kisumu, Kenya</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>10923</uid>
+    <lastName>REVIVAL OF ISLAMIC HERITAGE SOCIETY</lastName>
+    <sdnType>Entity</sdnType>
+    <remarks>Website www.alturath.org. Revival of Islamic Heritage Society Offices Worldwide.</remarks>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>186371</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>11134</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS</lastName>
+      </aka>
+      <aka>
+        <uid>11135</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS HEADQUARTERS-KUWAIT</lastName>
+      </aka>
+      <aka>
+        <uid>11136</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>REVIVAL OF ISLAMIC HERITAGE FOUNDATION</lastName>
+      </aka>
+      <aka>
+        <uid>11137</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHF</lastName>
+      </aka>
+      <aka>
+        <uid>11138</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>SOCIETY FOR THE REVIVAL OF ISLAMIC HERITAGE</lastName>
+      </aka>
+      <aka>
+        <uid>11139</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISLAMIC HERITAGE REVIVAL PARTY</lastName>
+      </aka>
+      <aka>
+        <uid>11140</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISLAMIC HERITAGE RESTORATION SOCIETY</lastName>
+      </aka>
+      <aka>
+        <uid>11141</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IHRS</lastName>
+      </aka>
+      <aka>
+        <uid>11142</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>KUWAITI HERITAGE</lastName>
+      </aka>
+      <aka>
+        <uid>11143</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IHYA TURAS AL-ISLAMI</lastName>
+      </aka>
+      <aka>
+        <uid>11144</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IJHA TURATH  AL-ISLAMI</lastName>
+      </aka>
+      <aka>
+        <uid>11145</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMIA IHYA UL TURATH</lastName>
+      </aka>
+      <aka>
+        <uid>11146</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMIAT IHIA AL-TURATH AL-ISLAMIYA</lastName>
+      </aka>
+      <aka>
+        <uid>11147</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAM'IYAT IHYA' AL-TURATH AL-ISLAMI</lastName>
+      </aka>
+      <aka>
+        <uid>11148</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMI'AT IHY'A AL-TIRATH AL-ISLAMIA</lastName>
+      </aka>
+      <aka>
+        <uid>11149</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMIATUL IHYA UL TURATH</lastName>
+      </aka>
+      <aka>
+        <uid>11150</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMIYAT IKHYA AT-TURAZ AL-ISLAMI, SOCIETY OF THE REBIRTH OF THE ISLAMIC PEOPLE</lastName>
+      </aka>
+      <aka>
+        <uid>11151</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMIATUL-YAHYA UT TURAZ</lastName>
+      </aka>
+      <aka>
+        <uid>11152</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JOMIATUL EHYA-UT TURAJ</lastName>
+      </aka>
+      <aka>
+        <uid>11153</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JOMIYATU-EHYA-UT TURAS AL ISLAMI</lastName>
+      </aka>
+      <aka>
+        <uid>11154</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMA'AH IHYA AL-TURAZ AL-ISLAMI</lastName>
+      </aka>
+      <aka>
+        <uid>11155</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMI'AH AL-HIYA AL-TURATH AL ISLAMIYAH</lastName>
+      </aka>
+      <aka>
+        <uid>11156</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>LAJNAT IHYA AL-TURATH AL-ISLAMI</lastName>
+      </aka>
+      <aka>
+        <uid>11157</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>LAJNAT AL-IHYA AL-TURATH AL-ISLAMI</lastName>
+      </aka>
+      <aka>
+        <uid>11158</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS ADMINISTRATION FOR THE BUILDING OF MOSQUES AND ISLAMIC PROJECTS</lastName>
+      </aka>
+      <aka>
+        <uid>11159</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS MOSQUES COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11160</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ADMINISTRATION OF THE REVIVAL OF ISLAMIC HERITAGE SOCIETY COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11161</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS ARAB WORLD COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11162</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR THE ARAB WORLD</lastName>
+      </aka>
+      <aka>
+        <uid>11163</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR WEST ASIA</lastName>
+      </aka>
+      <aka>
+        <uid>11164</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS CENTRAL ASIA COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11165</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>COMMITTEE FOR EUROPE AND THE AMERICAS</lastName>
+      </aka>
+      <aka>
+        <uid>11166</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS EUROPE AND THE AMERICAS COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11167</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS TWO AMERICAS AND EUROPEAN MUSLIM COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11168</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS EUROPE AMERICA MUSLIMS COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11169</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS SOUTHEAST ASIA COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11170</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR SOUTH EAST ASIA</lastName>
+      </aka>
+      <aka>
+        <uid>11171</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS INDIAN CONTINENT COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11172</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS INDIAN SUBCONTINENT COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11173</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR INDIA</lastName>
+      </aka>
+      <aka>
+        <uid>11174</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS AFRICAN CONTINENT COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11175</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>REVIVAL OF ISLAMIC SOCIETY HERITAGE ON THE AFRICAN CONTINENT</lastName>
+      </aka>
+      <aka>
+        <uid>11176</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS PUBLIC RELATIONS COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11177</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS CULTURAL COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11178</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS PRINCIPLE COMMITTEE FOR THE CENTER FOR PRESERVATION OF THE HOLY QU'ARAN</lastName>
+      </aka>
+      <aka>
+        <uid>11179</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS GENERAL COMMITTEE FOR DONATIONS</lastName>
+      </aka>
+      <aka>
+        <uid>11180</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS YOUTH CENTER COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11181</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS SCIENTIFIC COMMITTEE-BRANCH OF SABAH AL-NASIR</lastName>
+      </aka>
+      <aka>
+        <uid>11182</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS FATWAS COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11183</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS CENTER FOR MANUSCRIPTS COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11184</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS EDUCATING COMMITTEES, AL-JAHRA'</lastName>
+      </aka>
+      <aka>
+        <uid>11185</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS AUDIO RECORDINGS COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11186</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS PROJECT OF ASSIGNING PREACHERS COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11187</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS OFFICE OF PRINTING AND PUBLISHING</lastName>
+      </aka>
+      <aka>
+        <uid>11188</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR WOMEN</lastName>
+      </aka>
+      <aka>
+        <uid>11194</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR WOMEN, ADMINISTRATION FOR THE BUILDING OF MOSQUES</lastName>
+      </aka>
+      <aka>
+        <uid>11196</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS ADMINISTRATION FOR THE COMMITTEES OF ALMSGIVING</lastName>
+      </aka>
+      <aka>
+        <uid>11197</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS WOMEN'S BRANCH FOR THE PROJECT OF ENDOWMENT</lastName>
+      </aka>
+      <aka>
+        <uid>11198</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR ALMSGIVING AND CHARITIES</lastName>
+      </aka>
+      <aka>
+        <uid>11207</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR THE CALL AND GUIDANCE</lastName>
+      </aka>
+      <aka>
+        <uid>11229</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-CAMBODIA</lastName>
+      </aka>
+      <aka>
+        <uid>11230</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>THE KUWAITI-CAMBODIAN ORPHANAGE CENTER</lastName>
+      </aka>
+      <aka>
+        <uid>11231</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS CAMBODIA-KUWAIT ORPHANAGE CENTER</lastName>
+      </aka>
+      <aka>
+        <uid>11232</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS CHAOM CHAU CENTER</lastName>
+      </aka>
+      <aka>
+        <uid>11233</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>THE KUWAIT-CAMBODIA ISLAMIC CULTURAL TRAINING CENTER</lastName>
+      </aka>
+      <aka>
+        <uid>11234</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>NARA WELFARE AND EDUCATION ASSOCIATION</lastName>
+      </aka>
+      <aka>
+        <uid>11236</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-BOSNIA AND HERZEGOVINA</lastName>
+      </aka>
+      <aka>
+        <uid>11237</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>KUWAITI JOINT RELIEF COMMITTEE, BOSNIA AND HERZEGOVINA</lastName>
+      </aka>
+      <aka>
+        <uid>11238</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>KJRC-BOSNIA AND HERZEGOVINA</lastName>
+      </aka>
+      <aka>
+        <uid>11239</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>PLANDISTE SCHOOL, BOSNIA AND HERZEGOVINA</lastName>
+      </aka>
+      <aka>
+        <uid>11240</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ORGANIZACIJA PREPORODA ISLAMSKE TRADICIJE KUVAJT</lastName>
+      </aka>
+      <aka>
+        <uid>11241</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>KUWAIT GENERAL COMMITTEE FOR AID</lastName>
+      </aka>
+      <aka>
+        <uid>11242</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>GENERAL KUWAIT COMMITTEE</lastName>
+      </aka>
+      <aka>
+        <uid>11243</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-ALBANIA</lastName>
+      </aka>
+      <aka>
+        <uid>11244</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>CENTER OF CALL FOR WISDOM</lastName>
+      </aka>
+      <aka>
+        <uid>11245</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>CCFW</lastName>
+      </aka>
+      <aka>
+        <uid>11246</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>THIRRJA PER UTESI</lastName>
+      </aka>
+      <aka>
+        <uid>11247</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>NGO TURATH</lastName>
+      </aka>
+      <aka>
+        <uid>11248</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-KOSOVO</lastName>
+      </aka>
+      <aka>
+        <uid>11249</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>DORA E MIRESISE</lastName>
+      </aka>
+      <aka>
+        <uid>11250</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HAND OF MERCY</lastName>
+      </aka>
+      <aka>
+        <uid>11251</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-AZERBAIJAN</lastName>
+      </aka>
+      <aka>
+        <uid>11252</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-RUSSIA</lastName>
+      </aka>
+      <aka>
+        <uid>11253</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-LEBANON</lastName>
+      </aka>
+      <aka>
+        <uid>11254</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-BANGLADESH</lastName>
+      </aka>
+      <aka>
+        <uid>11256</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-SOMALIA</lastName>
+      </aka>
+      <aka>
+        <uid>11257</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-GHANA</lastName>
+      </aka>
+      <aka>
+        <uid>11258</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-TANZANIA</lastName>
+      </aka>
+      <aka>
+        <uid>11259</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-BENIN</lastName>
+      </aka>
+      <aka>
+        <uid>11260</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-CAMEROON</lastName>
+      </aka>
+      <aka>
+        <uid>11261</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-SENEGAL</lastName>
+      </aka>
+      <aka>
+        <uid>11262</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-NIGERIA</lastName>
+      </aka>
+      <aka>
+        <uid>11263</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-LIBERIA</lastName>
+      </aka>
+      <aka>
+        <uid>11264</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS-IVORY COAST</lastName>
+      </aka>
+      <aka>
+        <uid>11265</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>RIHS COMMITTEE FOR AFRICA</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>15756</uid>
+        <address1>Part 5, Qurtaba, P.O. Box 5585</address1>
+        <city>Safat</city>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15757</uid>
+        <address1>House #40, Lake Drive Road, Sector #7, Uttara</address1>
+        <city>Dhaka</city>
+        <country>Bangladesh</country>
+      </address>
+      <address>
+        <uid>15758</uid>
+        <address1>Number 28 Mula Mustafe Baseskije Street</address1>
+        <city>Sarajevo</city>
+        <country>Bosnia and Herzegovina</country>
+      </address>
+      <address>
+        <uid>15759</uid>
+        <address1>Number 2 Plandiste Street</address1>
+        <city>Sarajevo</city>
+        <country>Bosnia and Herzegovina</country>
+      </address>
+      <address>
+        <uid>15760</uid>
+        <address1>M.M. Baseskije Street, No. 28p</address1>
+        <city>Sarajevo</city>
+        <country>Bosnia and Herzegovina</country>
+      </address>
+      <address>
+        <uid>15761</uid>
+        <address1>Number 6 Donji Hotonj Street</address1>
+        <city>Sarajevo</city>
+        <country>Bosnia and Herzegovina</country>
+      </address>
+      <address>
+        <uid>15762</uid>
+        <address1>RIHS Office</address1>
+        <city>Ilidza</city>
+        <country>Bosnia and Herzegovina</country>
+      </address>
+      <address>
+        <uid>15763</uid>
+        <address1>RIHS Alija House</address1>
+        <city>Ilidza</city>
+        <country>Bosnia and Herzegovina</country>
+      </address>
+      <address>
+        <uid>15764</uid>
+        <address1>RIHS Office</address1>
+        <city>Tirana</city>
+        <country>Albania</country>
+      </address>
+      <address>
+        <uid>15765</uid>
+        <address1>RIHS Office</address1>
+        <city>Pristina</city>
+        <country>Kosovo</country>
+      </address>
+      <address>
+        <uid>15766</uid>
+        <city>Tripoli</city>
+        <country>Lebanon</country>
+      </address>
+      <address>
+        <uid>15767</uid>
+        <city>City of Sidon</city>
+        <country>Lebanon</country>
+      </address>
+      <address>
+        <uid>15768</uid>
+        <address1>Dangkor District</address1>
+        <city>Phnom Penh</city>
+        <country>Cambodia</country>
+      </address>
+      <address>
+        <uid>15769</uid>
+        <city>Kismayo</city>
+        <country>Somalia</country>
+      </address>
+      <address>
+        <uid>15770</uid>
+        <city>Kaneshi Quarter of Accra</city>
+        <country>Ghana</country>
+      </address>
+      <address>
+        <uid>15771</uid>
+        <address1>Al-Andalus</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15772</uid>
+        <address1>Al-Jahra'</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15773</uid>
+        <address1>Al-Qurayn</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15774</uid>
+        <address1>Sabah Al-Nasir</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15775</uid>
+        <address1>Qurtubah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15776</uid>
+        <address1>Hadiyah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15777</uid>
+        <address1>Al-Qadisiyah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15778</uid>
+        <address1>Al-Fayha'</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15779</uid>
+        <address1>Al-Riqah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15780</uid>
+        <address1>Al-Firdaws</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15781</uid>
+        <address1>Khitan</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15783</uid>
+        <address1>Al-Sabahiyah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15785</uid>
+        <address1>Jalib Al-Shiyukh</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15786</uid>
+        <address1>Bayan Wa Mashrif</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15787</uid>
+        <address1>Sabah Al-Salim</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15788</uid>
+        <address1>Al-Rumaythiyah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15789</uid>
+        <address1>Al-Salimiyah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15790</uid>
+        <address1>Al-Aridiyah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15791</uid>
+        <address1>Al-Khalidiya</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15793</uid>
+        <address1>Al-Dhahr</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15794</uid>
+        <address1>Al-Rawdah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15795</uid>
+        <address1>Al-Shamiyah Wa Al-Shuwaykh</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15796</uid>
+        <address1>Al-Amiriyah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15797</uid>
+        <address1>Al-Nuzhah</address1>
+        <country>Kuwait</country>
+      </address>
+      <address>
+        <uid>15798</uid>
+        <address1>Kifan</address1>
+        <country>Kuwait</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>12753</uid>
+    <firstName>Naima Mohamed</firstName>
+    <lastName>NYAKINIYWA</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDNTK</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>7181</uid>
+        <idType>Passport</idType>
+        <idNumber>A735832</idNumber>
+        <idCountry>Kenya</idCountry>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>13909</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>MAMA LELA</lastName>
+      </aka>
+      <aka>
+        <uid>13910</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>MAMA NAIMA</lastName>
+      </aka>
+    </akaList>
+    <citizenshipList>
+      <citizenship>
+        <uid>8492</uid>
+        <country>Kenya</country>
+        <mainEntry>true</mainEntry>
+      </citizenship>
+    </citizenshipList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>8490</uid>
+        <dateOfBirth>02 Sep 1962</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>8491</uid>
+        <placeOfBirth>Kenya</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2674</uid>
+    <firstName>Abu</firstName>
+    <lastName>ABBAS</lastName>
+    <title>Director of PALESTINE LIBERATION FRONT - ABU ABBAS FACTION</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185810</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>1795</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ZAYDAN</lastName>
+        <firstName>Muhammad</firstName>
+      </aka>
+    </akaList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1000</uid>
+        <dateOfBirth>10 Dec 1948</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2675</uid>
+    <firstName>Shaykh Umar Abd</firstName>
+    <lastName>AL RAHMAN</lastName>
+    <title>Chief Ideological Figure of ISLAMIC GAMA'AT</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185811</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1001</uid>
+        <dateOfBirth>03 May 1938</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1002</uid>
+        <placeOfBirth>Egypt</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2676</uid>
+    <firstName>Dr. Ayman</firstName>
+    <lastName>AL ZAWAHIRI</lastName>
+    <title>Operational and Military Leader of JIHAD GROUP</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>1000</uid>
+        <idType>Passport</idType>
+        <idNumber>1084010</idNumber>
+        <idCountry>Egypt</idCountry>
+      </id>
+      <id>
+        <uid>1001</uid>
+        <idType>Passport</idType>
+        <idNumber>19820215</idNumber>
+      </id>
+      <id>
+        <uid>185812</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>4760</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-ZAWAHIRI</lastName>
+        <firstName>Ayman</firstName>
+      </aka>
+      <aka>
+        <uid>4761</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>SALIM</lastName>
+        <firstName>Ahmad Fuad</firstName>
+      </aka>
+      <aka>
+        <uid>4787</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-ZAWAHIRI</lastName>
+        <firstName>Aiman Muhammad Rabi</firstName>
+      </aka>
+    </akaList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1003</uid>
+        <dateOfBirth>19 Jun 1951</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1004</uid>
+        <placeOfBirth>Giza, Egypt</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2677</uid>
+    <firstName>Abboud Abdul Latif Hassan</firstName>
+    <lastName>AL-ZOMOR</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185813</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+      <id>
+        <uid>140122</uid>
+        <idType>Gender</idType>
+        <idNumber>Male</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>1796</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ZUMAR</lastName>
+        <firstName>Abbud</firstName>
+      </aka>
+      <aka>
+        <uid>49609</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-ZUMAR</lastName>
+        <firstName>Abbud</firstName>
+      </aka>
+      <aka>
+        <uid>49610</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>EL-ZOMOR</lastName>
+        <firstName>Aboud Abdul Latif Hasan</firstName>
+      </aka>
+      <aka>
+        <uid>49611</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-ZUMUR</lastName>
+        <firstName>Abood Abdul Latif Hassan</firstName>
+      </aka>
+      <aka>
+        <uid>49612</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-ZAMUR</lastName>
+        <firstName>Abboud Abdul Latif Hassan</firstName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>1835</uid>
+        <country>Egypt</country>
+      </address>
+    </addressList>
+    <nationalityList>
+      <nationality>
+        <uid>40121</uid>
+        <country>Egypt</country>
+        <mainEntry>true</mainEntry>
+      </nationality>
+    </nationalityList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>40120</uid>
+        <dateOfBirth>19 Apr 1947</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1005</uid>
+        <placeOfBirth>Nahia, Giza, Egypt</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2678</uid>
+    <firstName>Abd Al Aziz</firstName>
+    <lastName>AWDA</lastName>
+    <title>Chief Ideological Figure of PALESTINIAN ISLAMIC JIHAD - SHIQAQI</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185814</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+      <id>
+        <uid>199144</uid>
+        <idType>Gender</idType>
+        <idNumber>Male</idNumber>
+      </id>
+    </idList>
+    <addressList>
+      <address>
+        <uid>89222</uid>
+        <country>Region: Gaza</country>
+      </address>
+    </addressList>
+    <nationalityList>
+      <nationality>
+        <uid>99146</uid>
+        <country>Palestinian</country>
+        <mainEntry>true</mainEntry>
+      </nationality>
+    </nationalityList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1006</uid>
+        <dateOfBirth>20 Dec 1950</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>99145</uid>
+        <placeOfBirth>Jabaliyah, Gaza Strip</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2682</uid>
+    <firstName>Mohammad Shawqi</firstName>
+    <lastName>ISLAMBOULI</lastName>
+    <title>Military Leader of ISLAMIC GAMA'AT</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>1002</uid>
+        <idType>Passport</idType>
+        <idNumber>304555</idNumber>
+        <idCountry>Egypt</idCountry>
+      </id>
+      <id>
+        <uid>199149</uid>
+        <idType>Gender</idType>
+        <idNumber>Male</idNumber>
+      </id>
+      <id>
+        <uid>185817</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <addressList>
+      <address>
+        <uid>89030</uid>
+        <city>Minya</city>
+        <country>Egypt</country>
+      </address>
+    </addressList>
+    <nationalityList>
+      <nationality>
+        <uid>99148</uid>
+        <country>Egypt</country>
+        <mainEntry>true</mainEntry>
+      </nationality>
+    </nationalityList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1010</uid>
+        <dateOfBirth>15 Jan 1955</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>99147</uid>
+        <dateOfBirth>21 Jan 1952</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1011</uid>
+        <placeOfBirth>Egypt</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2686</uid>
+    <firstName>Hasan</firstName>
+    <lastName>NASRALLAH</lastName>
+    <title>Secretary General of Hizballah</title>
+    <sdnType>Individual</sdnType>
+    <remarks>(Linked To: HIZBALLAH)</remarks>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>1004</uid>
+        <idType>Passport</idType>
+        <idNumber>042833</idNumber>
+        <idCountry>Lebanon</idCountry>
+      </id>
+      <id>
+        <uid>185820</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+      <id>
+        <uid>127061</uid>
+        <idType>Gender</idType>
+        <idNumber>Male</idNumber>
+      </id>
+      <id>
+        <uid>120223</uid>
+        <idType>Additional Sanctions Information -</idType>
+        <idNumber>Subject to Secondary Sanctions Pursuant to the Hizballah Financial Sanctions Regulations</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>22740</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>NASRALLAH</lastName>
+        <firstName>Hasan Abd-al-Karim</firstName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>37108</uid>
+        <country>Lebanon</country>
+      </address>
+    </addressList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1018</uid>
+        <dateOfBirth>31 Aug 1960</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>3930</uid>
+        <dateOfBirth>31 Aug 1953</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>3931</uid>
+        <dateOfBirth>31 Aug 1955</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>3932</uid>
+        <dateOfBirth>31 Aug 1958</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1019</uid>
+        <placeOfBirth>Al Basuriyah, Lebanon</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>3754</uid>
+    <firstName>Mousa Mohammed</firstName>
+    <lastName>ABU MARZOOK</lastName>
+    <title>Political Leader in Amman, Jordan and Damascus, Syria for HAMAS</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>1008</uid>
+        <idType>Passport</idType>
+        <idNumber>92/664</idNumber>
+        <idCountry>Egypt</idCountry>
+      </id>
+      <id>
+        <uid>1009</uid>
+        <idType>SSN</idType>
+        <idNumber>523-33-8386</idNumber>
+        <idCountry>United States</idCountry>
+      </id>
+      <id>
+        <uid>185823</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>3341</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MARZUK</lastName>
+        <firstName>Musa Abu</firstName>
+      </aka>
+      <aka>
+        <uid>3342</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ABU-MARZUQ</lastName>
+        <firstName>Dr. Musa</firstName>
+      </aka>
+      <aka>
+        <uid>3343</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MARZOOK</lastName>
+        <firstName>Mousa Mohamed Abou</firstName>
+      </aka>
+      <aka>
+        <uid>3344</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ABU-MARZUQ</lastName>
+        <firstName>Sa'id</firstName>
+      </aka>
+      <aka>
+        <uid>3345</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>ABU-'UMAR</lastName>
+      </aka>
+      <aka>
+        <uid>5821</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>MARZOUK</lastName>
+        <firstName>Musa Abu</firstName>
+      </aka>
+    </akaList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1029</uid>
+        <dateOfBirth>09 Feb 1951</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1030</uid>
+        <placeOfBirth>Gaza, Egypt</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2679</uid>
+    <firstName>Shaykh Muhammad Husayn</firstName>
+    <lastName>FADLALLAH</lastName>
+    <title>Leading Ideological Figure of HIZBALLAH</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185815</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+      <id>
+        <uid>120229</uid>
+        <idType>Additional Sanctions Information -</idType>
+        <idNumber>Subject to Secondary Sanctions Pursuant to the Hizballah Financial Sanctions Regulations</idNumber>
+      </id>
+    </idList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1007</uid>
+        <dateOfBirth>1938</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>3929</uid>
+        <dateOfBirth>1936</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1008</uid>
+        <placeOfBirth>Najf Al Ashraf (Najaf), Iraq</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2681</uid>
+    <firstName>Nayif</firstName>
+    <lastName>HAWATMA</lastName>
+    <title>Secretary General of DEMOCRATIC FRONT FOR THE LIBERATION OF PALESTINE - HAWATMEH FACTION</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185816</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>1798</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HAWATMEH</lastName>
+        <firstName>Nayif</firstName>
+      </aka>
+      <aka>
+        <uid>1799</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HAWATMAH</lastName>
+        <firstName>Nayif</firstName>
+      </aka>
+      <aka>
+        <uid>1800</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>KHALID</lastName>
+        <firstName>Abu</firstName>
+      </aka>
+    </akaList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1009</uid>
+        <dateOfBirth>1933</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2683</uid>
+    <firstName>Ahmad</firstName>
+    <lastName>JABRIL</lastName>
+    <title>Secretary General of POPULAR FRONT FOR THE LIBERATION OF PALESTINE - GENERAL COMMAND</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185818</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>1823</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JIBRIL</lastName>
+        <firstName>Ahmad</firstName>
+      </aka>
+    </akaList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1012</uid>
+        <dateOfBirth>1938</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1013</uid>
+        <placeOfBirth>Ramleh, Israel</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2685</uid>
+    <firstName>Talal Muhammad Rashid</firstName>
+    <lastName>NAJI</lastName>
+    <title>Principal Deputy of POPULAR FRONT FOR THE LIBERATION OF PALESTINE - GENERAL COMMAND</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185819</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1016</uid>
+        <dateOfBirth>1930</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1017</uid>
+        <placeOfBirth>Al Nasiria, Palestine</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>2690</uid>
+    <firstName>Subhi</firstName>
+    <lastName>TUFAYLI</lastName>
+    <title>Former Secretary General and Current Senior Figure of HIZBALLAH</title>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185821</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1024</uid>
+        <dateOfBirth>1947</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+    <placeOfBirthList>
+      <placeOfBirthItem>
+        <uid>1025</uid>
+        <placeOfBirth>Biqa Valley, Lebanon</placeOfBirth>
+        <mainEntry>true</mainEntry>
+      </placeOfBirthItem>
+    </placeOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>36</uid>
+    <lastName>AEROCARIBBEAN AIRLINES</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <akaList>
+      <aka>
+        <uid>12</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AERO-CARIBBEAN</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>25</uid>
+        <city>Havana</city>
+        <country>Cuba</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>173</uid>
+    <lastName>ANGLO-CARIBBEAN CO., LTD.</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <akaList>
+      <aka>
+        <uid>57</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AVIA IMPORT</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>129</uid>
+        <address1>Ibex House, The Minories</address1>
+        <city>London</city>
+        <postalCode>EC3N 1DY</postalCode>
+        <country>United Kingdom</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>306</uid>
+    <lastName>BANCO NACIONAL DE CUBA</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <akaList>
+      <aka>
+        <uid>219</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>BNC</lastName>
+      </aka>
+      <aka>
+        <uid>220</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>NATIONAL BANK OF CUBA</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>199</uid>
+        <address1>Zweierstrasse 35</address1>
+        <city>Zurich</city>
+        <postalCode>CH-8022</postalCode>
+        <country>Switzerland</country>
+      </address>
+      <address>
+        <uid>200</uid>
+        <address1>Avenida de Concha Espina 8</address1>
+        <city>Madrid</city>
+        <postalCode>E-28036</postalCode>
+        <country>Spain</country>
+      </address>
+      <address>
+        <uid>201</uid>
+        <address1>Dai-Ichi Bldg. 6th Floor, 10-2 Nihombashi, 2-chome, Chuo-ku</address1>
+        <city>Tokyo</city>
+        <postalCode>103</postalCode>
+        <country>Japan</country>
+      </address>
+      <address>
+        <uid>202</uid>
+        <address1>Federico Boyd Avenue &amp; 51 Street</address1>
+        <city>Panama City</city>
+        <country>Panama</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>424</uid>
+    <lastName>BOUTIQUE LA MAISON</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <addressList>
+      <address>
+        <uid>247</uid>
+        <address1>42 Via Brasil</address1>
+        <city>Panama City</city>
+        <country>Panama</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>475</uid>
+    <lastName>CASA DE CUBA</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <addressList>
+      <address>
+        <uid>271</uid>
+        <country>Spain</country>
+      </address>
+      <address>
+        <uid>272</uid>
+        <country>Mexico</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>4108</uid>
+    <firstName>Miguel Angel</firstName>
+    <lastName>RODRIGUEZ OREJUELA</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>SDNT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>1017</uid>
+        <idType>Cedula No.</idType>
+        <idNumber>6095803</idNumber>
+        <idCountry>Colombia</idCountry>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>7783</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>EL SENOR</lastName>
+      </aka>
+      <aka>
+        <uid>7784</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>PATRICIA</lastName>
+      </aka>
+      <aka>
+        <uid>7785</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>PATRICIO</lastName>
+      </aka>
+      <aka>
+        <uid>7786</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>PATTY</lastName>
+      </aka>
+      <aka>
+        <uid>7787</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>PAT</lastName>
+      </aka>
+      <aka>
+        <uid>7788</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>MANUEL</lastName>
+      </aka>
+      <aka>
+        <uid>7789</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>MANOLO</lastName>
+      </aka>
+      <aka>
+        <uid>7790</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>MIKE</lastName>
+      </aka>
+      <aka>
+        <uid>7791</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>MAURO</lastName>
+      </aka>
+      <aka>
+        <uid>7792</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>DOCTOR M.R.O.</lastName>
+      </aka>
+    </akaList>
+    <addressList>
+      <address>
+        <uid>2008</uid>
+        <address1>Casa No. 19, Avenida Lago, Ciudad Jardin</address1>
+        <city>Cali</city>
+        <country>Colombia</country>
+      </address>
+    </addressList>
+    <dateOfBirthList>
+      <dateOfBirthItem>
+        <uid>1034</uid>
+        <dateOfBirth>23 Nov 1943</dateOfBirth>
+        <mainEntry>true</mainEntry>
+      </dateOfBirthItem>
+      <dateOfBirthItem>
+        <uid>1035</uid>
+        <dateOfBirth>15 Jul 1943</dateOfBirth>
+        <mainEntry>false</mainEntry>
+      </dateOfBirthItem>
+    </dateOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>4691</uid>
+    <lastName>AUM SHINRIKYO</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185829</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>3886</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AUM SUPREME TRUTH</lastName>
+      </aka>
+      <aka>
+        <uid>3887</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>A.I.C. SOGO KENKYUSHO</lastName>
+      </aka>
+      <aka>
+        <uid>3888</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>A.I.C. COMPREHENSIVE RESEARCH INSTITUTE</lastName>
+      </aka>
+      <aka>
+        <uid>4788</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ALEPH</lastName>
+      </aka>
+    </akaList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>4693</uid>
+    <lastName>EUZKADI TA ASKATASUNA</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185830</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>3893</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>BASQUE FATHERLAND AND LIBERTY</lastName>
+      </aka>
+      <aka>
+        <uid>3894</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>ETA</lastName>
+      </aka>
+      <aka>
+        <uid>5397</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>BATASUNA</lastName>
+      </aka>
+      <aka>
+        <uid>5398</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>EUSKAL HERRITARROK</lastName>
+      </aka>
+      <aka>
+        <uid>5399</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HERRI BATASUNA</lastName>
+      </aka>
+      <aka>
+        <uid>5913</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ASKATASUNA</lastName>
+      </aka>
+      <aka>
+        <uid>5914</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>EKIN</lastName>
+      </aka>
+      <aka>
+        <uid>5915</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>K.A.S.</lastName>
+      </aka>
+      <aka>
+        <uid>5916</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>XAKI</lastName>
+      </aka>
+      <aka>
+        <uid>5917</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JARRAI-HAIKA-SEGI</lastName>
+      </aka>
+      <aka>
+        <uid>5960</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>EPANASTATIKI PIRINES</lastName>
+      </aka>
+      <aka>
+        <uid>5961</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>POPULAR REVOLUTIONARY STRUGGLE</lastName>
+      </aka>
+    </akaList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>4694</uid>
+    <lastName>GAMA'A AL-ISLAMIYYA</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185831</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>3895</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISLAMIC GROUP</lastName>
+      </aka>
+      <aka>
+        <uid>3896</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>IG</lastName>
+      </aka>
+      <aka>
+        <uid>3897</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-GAMA'AT</lastName>
+      </aka>
+      <aka>
+        <uid>3898</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISLAMIC GAMA'AT</lastName>
+      </aka>
+      <aka>
+        <uid>3899</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>EGYPTIAN AL-GAMA'AT AL-ISLAMIYYA</lastName>
+      </aka>
+      <aka>
+        <uid>4356</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>GI</lastName>
+      </aka>
+    </akaList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>4695</uid>
+    <lastName>HAMAS</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>FTO</program>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185832</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>3900</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ISLAMIC RESISTANCE MOVEMENT</lastName>
+      </aka>
+      <aka>
+        <uid>3901</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HARAKAT AL-MUQAWAMA AL-ISLAMIYA</lastName>
+      </aka>
+      <aka>
+        <uid>3902</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>STUDENTS OF AYYASH</lastName>
+      </aka>
+      <aka>
+        <uid>3903</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>STUDENTS OF THE ENGINEER</lastName>
+      </aka>
+      <aka>
+        <uid>3904</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>YAHYA AYYASH UNITS</lastName>
+      </aka>
+      <aka>
+        <uid>3905</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IZZ AL-DIN AL-QASSIM BRIGADES</lastName>
+      </aka>
+      <aka>
+        <uid>3906</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IZZ AL-DIN AL-QASSIM FORCES</lastName>
+      </aka>
+      <aka>
+        <uid>3907</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IZZ AL-DIN AL-QASSIM BATTALIONS</lastName>
+      </aka>
+      <aka>
+        <uid>3908</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IZZ AL-DIN AL QASSAM BRIGADES</lastName>
+      </aka>
+      <aka>
+        <uid>3909</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IZZ AL-DIN AL QASSAM FORCES</lastName>
+      </aka>
+      <aka>
+        <uid>3910</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>IZZ AL-DIN AL QASSAM BATTALIONS</lastName>
+      </aka>
+    </akaList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>4696</uid>
+    <lastName>HARAKAT UL-MUJAHIDEEN</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>FTO</program>
+      <program>SDGT</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>185833</uid>
+        <idType>Secondary sanctions risk:</idType>
+        <idNumber>section 1(b) of Executive Order 13224, as amended by Executive Order 13886</idNumber>
+      </id>
+    </idList>
+    <akaList>
+      <aka>
+        <uid>3911</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>HUA</lastName>
+      </aka>
+      <aka>
+        <uid>4357</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HARAKAT UL-ANSAR</lastName>
+      </aka>
+      <aka>
+        <uid>4358</uid>
+        <type>a.k.a.</type>
+        <category>weak</category>
+        <lastName>HUM</lastName>
+      </aka>
+      <aka>
+        <uid>4755</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>HARAKAT UL-MUJAHIDIN</lastName>
+      </aka>
+      <aka>
+        <uid>5181</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-FARAN</lastName>
+      </aka>
+      <aka>
+        <uid>5182</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HADID</lastName>
+      </aka>
+      <aka>
+        <uid>5183</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>AL-HADITH</lastName>
+      </aka>
+      <aka>
+        <uid>5918</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>JAMIAT UL-ANSAR</lastName>
+      </aka>
+      <aka>
+        <uid>26372</uid>
+        <type>a.k.a.</type>
+        <category>strong</category>
+        <lastName>ANSAR-UL-UMMAH</lastName>
+      </aka>
+    </akaList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>480</uid>
+    <lastName>CECOEX, S.A.</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <addressList>
+      <address>
+        <uid>276</uid>
+        <city>Panama City</city>
+        <country>Panama</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>535</uid>
+    <lastName>CIMEX</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <addressList>
+      <address>
+        <uid>317</uid>
+        <address1>Emerson No. 148 Piso 7</address1>
+        <city>Mexico, D.F.</city>
+        <postalCode>11570</postalCode>
+        <country>Mexico</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>536</uid>
+    <lastName>CIMEX IBERICA</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <addressList>
+      <address>
+        <uid>318</uid>
+        <country>Spain</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>537</uid>
+    <lastName>CIMEX, S.A.</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CUBA</program>
+    </programList>
+    <addressList>
+      <address>
+        <uid>319</uid>
+        <country>Panama</country>
+      </address>
+    </addressList>
+  </sdnEntry>
+</sdnList>

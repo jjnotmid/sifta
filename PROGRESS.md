@@ -126,3 +126,75 @@ tests/helpers/db.ts  tests/memory/schema.test.ts
   searches them yet; Phase 5 uses them for rationale recall.
 - Real embedding providers land in Phase 6. Everything runs on the mock until
   then, by design.
+
+---
+
+## Phase 2 — Watchlist ingestion
+
+**Gate:** `npm run ingest:ofac && npm test -- ingest` → exit 0, database holds
+**19,181** entities (> 10,000 required) ✅
+
+**Built**
+
+- `src/ingest/ofac.ts` — parser for the real OFAC SDN XML from the Sanctions
+  List Service. Publication of 30 July 2026: 19,181 records, all 19,181 parsed,
+  none dropped.
+- `src/ingest/download.ts` — cached, redirect-following downloader. Writes to
+  `<dest>.part` and renames on success so an interrupted transfer can never
+  masquerade as a valid cache.
+- `src/ingest/ingest-ofac.ts` + `cli-ofac.ts` — idempotent load. Entities
+  upsert on `(source_list, source_ref)`, variants on
+  `(entity_id, variant_text, variant_kind)`, so a daily re-publish updates in
+  place. **43,399** name variants written (one `primary` per entity plus one
+  `aka` per alias).
+- `scripts/make-fixture.ts` — carves a 46-record fixture out of the real
+  download, selected to include the awkward shapes rather than the first N:
+  Nigerian/Ghanaian/Kenyan nationals, full DOBs, fuzzy DOBs, missing DOB and
+  nationality, alias-heavy records, and non-individuals. Every byte is genuine
+  OFAC data.
+
+**Judgement calls**
+
+- **Fuzzy dates are dropped, not guessed.** OFAC DOBs are free text
+  (`"1957"`, `"circa 1960"`, `"01 Jan 1980 to 31 Dec 1980"`). Only an
+  unambiguous full date becomes a `DATE`. Inventing `1957-01-01` from `"1957"`
+  would manufacture a DOB mismatch that is not in the source — and DOB mismatch
+  is precisely what analysts clear alerts on.
+- **Non-individuals are ingested, not filtered.** PRD §9 scopes *entity
+  resolution* to individuals, which is honoured in Phase 3 (only individuals
+  get generated name variants). But an AML tool that silently omits 9,840
+  sanctioned companies and 1,524 vessels from the watchlist would be
+  non-compliant, so all 19,181 records are loaded and screenable by their
+  primary name and aliases.
+
+**⚠ Design issue found — jurisdiction partitioning**
+
+Deriving `jurisdiction` from each entity's own nationality yields
+`GLOBAL=19,125  NG=29  KE=25  GH=2`. OFAC lists very few African nationals.
+
+A screen scoped to `jurisdiction = 'NG'` would therefore check 29 entities and
+miss the other 19,152 — fast, demo-friendly, and completely non-compliant. A
+Nigerian fintech screens against the *entire* list.
+
+Resolution carried into Phase 4: the jurisdiction prefix is a **locality
+optimisation on the vector index, not a compliance filter.** Screening scans
+every partition and merges the ranked results; the single-partition `EXPLAIN`
+still demonstrates that the prefix bounds the scan. This is written up in
+`ARCHITECTURE.md` rather than glossed over, because the PRD's phrasing ("a
+Nigerian screen searches only the Nigerian partition") reads as a correctness
+claim and, against real OFAC data, it is not one.
+
+**Files created**
+
+```
+src/ingest/{ofac,download,ingest-ofac,cli-ofac}.ts
+scripts/make-fixture.ts
+tests/fixtures/sdn-sample.xml   tests/ingest/ofac.test.ts
+```
+
+**Network note**
+
+The Sanctions List Service 302s to an S3 bucket in `us-gov-west-1` that the
+build machine's resolver could not resolve. `download.ts` falls back to public
+DNS (1.1.1.1 / 8.8.8.8) on lookup failure — without it `npm run ingest:ofac`
+dies with a bare `ENOTFOUND` on an otherwise working connection.

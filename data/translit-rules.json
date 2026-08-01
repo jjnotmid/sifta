@@ -1,0 +1,191 @@
+{
+  "_README": [
+    "TRANSLITERATION ALTERNATIONS FOR WEST AFRICAN NAMES.",
+    "",
+    "OWNER: this file is seeded with a best-effort starting set and is meant to",
+    "be expanded by you. It is plain data — no code changes are needed to add a",
+    "rule, and every rule you add is picked up by the next `npm run",
+    "ingest:variants`.",
+    "",
+    "Each rule rewrites a substring of a normalised (uppercased, de-accented)",
+    "name. `bidirectional: true` means the substitution is also applied in",
+    "reverse, which is usually what you want: if CHUKWU can be spelled CHUKU,",
+    "then a customer who writes CHUKU should match a list entry spelled CHUKWU.",
+    "",
+    "`position` constrains where the rule may fire:",
+    "  'any'    - anywhere in a name token (default)",
+    "  'start'  - only at the beginning of a token",
+    "  'end'    - only at the end of a token",
+    "",
+    "Keep rules narrow. A rule like E->I applied anywhere generates enormous",
+    "numbers of useless variants and inflates the candidate set, which is the",
+    "exact problem this product exists to reduce. Prefer a longer, more",
+    "specific pattern over a single-letter one.",
+    "",
+    "Sources to draw on when expanding: Onwu orthography for Igbo, the Yoruba",
+    "alphabet's underdotted characters (s-dot -> S or SH, e-dot, o-dot), and",
+    "Hausa Boko spellings of Arabic-derived names."
+  ],
+  "rules": [
+    {
+      "from": "KWU",
+      "to": "KU",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Igbo",
+      "note": "CHUKWUEMEKA / CHUKUEMEKA, NWACHUKWU / NWACHUKU. The single most common Igbo alternation. Note the pattern is KWU->KU, not KW->KU: the W is dropped and the U retained, so a KW->KU rule would produce the nonsense CHUKUUEMEKA."
+    },
+    {
+      "from": "NW",
+      "to": "NU",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Igbo",
+      "note": "NWACHUKWU / NUACHUKWU."
+    },
+    {
+      "from": "CH",
+      "to": "C",
+      "bidirectional": true,
+      "position": "start",
+      "language": "Igbo",
+      "note": "CHINEDU / CINEDU. Restricted to token start to avoid mangling -CH- medially."
+    },
+    {
+      "from": "SH",
+      "to": "S",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Yoruba",
+      "note": "Yoruba s-dot is romanised as either S or SH. SHOLA / SOLA, ADESHINA / ADESINA."
+    },
+    {
+      "from": "PH",
+      "to": "F",
+      "bidirectional": true,
+      "position": "any",
+      "language": "general",
+      "note": "JOSEPHINE / JOSEFINE, PHILIP / FILIP."
+    },
+    {
+      "from": "OU",
+      "to": "U",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Hausa",
+      "note": "Francophone-influenced spellings: ABOUBACAR / ABUBACAR."
+    },
+    {
+      "from": "OO",
+      "to": "O",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Yoruba",
+      "note": "Doubled-vowel collapse. OORE / ORE."
+    },
+    {
+      "from": "AA",
+      "to": "A",
+      "bidirectional": true,
+      "position": "any",
+      "language": "general",
+      "note": "Doubled-vowel collapse."
+    },
+    {
+      "from": "EE",
+      "to": "E",
+      "bidirectional": true,
+      "position": "any",
+      "language": "general",
+      "note": "Doubled-vowel collapse."
+    },
+    {
+      "from": "II",
+      "to": "I",
+      "bidirectional": true,
+      "position": "any",
+      "language": "general",
+      "note": "Doubled-vowel collapse."
+    },
+    {
+      "from": "MM",
+      "to": "M",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Hausa",
+      "note": "MUHAMMAD / MUHAMAD."
+    },
+    {
+      "from": "LL",
+      "to": "L",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Hausa",
+      "note": "ABDULLAHI / ABDULAHI."
+    },
+    {
+      "from": "DD",
+      "to": "D",
+      "bidirectional": true,
+      "position": "any",
+      "language": "general",
+      "note": "Doubled-consonant collapse."
+    },
+    {
+      "from": "MUHAMMAD",
+      "to": "MOHAMMED",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Hausa",
+      "note": "The highest-frequency name on earth and the most variably spelled. Whole-token rule rather than letter-level, deliberately."
+    },
+    {
+      "from": "MUHAMMAD",
+      "to": "MOHAMMAD",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Hausa",
+      "note": "See above."
+    },
+    {
+      "from": "MUHAMMAD",
+      "to": "MUHAMMED",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Hausa",
+      "note": "See above."
+    },
+    {
+      "from": "ABUBAKAR",
+      "to": "ABUBAKR",
+      "bidirectional": true,
+      "position": "any",
+      "language": "Hausa",
+      "note": "ABUBAKAR / ABUBAKR / ABOUBACAR."
+    },
+    {
+      "from": "K",
+      "to": "C",
+      "bidirectional": true,
+      "position": "start",
+      "language": "general",
+      "note": "KAMARA / CAMARA. Token-initial only."
+    },
+    {
+      "from": "Y",
+      "to": "I",
+      "bidirectional": true,
+      "position": "end",
+      "language": "Igbo",
+      "note": "IFY / IFI, CHY / CHI. Token-final only."
+    },
+    {
+      "from": "OLUWA",
+      "to": "OLU",
+      "bidirectional": true,
+      "position": "start",
+      "language": "Yoruba",
+      "note": "OLUWASEUN / OLUSEUN. The theophoric prefix contracts."
+    }
+  ]
+}
