@@ -1,0 +1,36 @@
+{
+  "name": "sifta",
+  "version": "0.1.0",
+  "description": "Agentic AML investigation memory for African financial institutions",
+  "license": "MIT",
+  "author": "Usifoh Joshua",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "db:up": "./scripts/db-up.sh",
+    "db:down": "./scripts/db-down.sh",
+    "migrate": "tsx src/memory/migrate.ts",
+    "ingest:ofac": "tsx src/ingest/cli-ofac.ts",
+    "ingest:variants": "tsx src/ingest/cli-variants.ts",
+    "eval": "tsx src/eval/cli.ts",
+    "build:lambda": "tsx scripts/build-lambda.ts",
+    "verify": "tsx scripts/verify.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/pg": "^8.11.10",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.10"
+  }
+}

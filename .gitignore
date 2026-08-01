@@ -1,0 +1,25 @@
+node_modules/
+dist/
+artifacts/
+.env
+.env.local
+*.log
+
+# Raw watchlist downloads are large and re-fetchable. Fixtures are committed
+# under tests/fixtures/ instead.
+data/raw/
+
+# Local CockroachDB binary + data directory
+vendor/cockroach/
+cockroach-data/
+
+# Generated eval corpora (regenerated deterministically by `npm run eval`)
+data/eval/*.jsonl
+
+# macOS
+.DS_Store
+
+# Next.js
+web/.next/
+web/out/
+web/node_modules/

@@ -1,0 +1,29 @@
+# Local single-node CockroachDB for development and tests.
+#
+# This is the documented path for contributors who have Docker. The build
+# machine for this project did not, so `scripts/db-up.sh` transparently falls
+# back to a downloaded CockroachDB binary. Both produce an identical cluster on
+# localhost:26257, so `npm run migrate` and the test suite do not care which
+# one is running.
+#
+#   docker compose up -d     # SQL on 26257, DB Console on http://localhost:8080
+#   docker compose down -v
+
+services:
+  crdb:
+    image: cockroachdb/cockroach:v25.2.0
+    container_name: sifta-crdb
+    command: start-single-node --insecure --http-addr=0.0.0.0:8080
+    ports:
+      - '26257:26257'
+      - '8080:8080'
+    volumes:
+      - crdb-data:/cockroach/cockroach-data
+    healthcheck:
+      test: ['CMD', 'cockroach', 'sql', '--insecure', '-e', 'SELECT 1']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  crdb-data:
