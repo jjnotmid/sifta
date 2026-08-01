@@ -12,7 +12,9 @@ interface InvestigationRow {
   id: string;
   alert_id: string;
   state: string;
-  step_count: number;
+  // CockroachDB INT is 64-bit, so `pg` returns it as a string to avoid
+  // silently truncating values beyond Number.MAX_SAFE_INTEGER.
+  step_count: string | number;
   tool_trace: ToolTraceStep[] | null;
   updated_at: Date;
 }
@@ -22,7 +24,7 @@ function toInvestigation(row: InvestigationRow): Investigation {
     id: row.id,
     alertId: row.alert_id,
     state: row.state as InvestigationState,
-    stepCount: row.step_count,
+    stepCount: Number(row.step_count),
     toolTrace: row.tool_trace ?? [],
     updatedAt: row.updated_at,
   };
