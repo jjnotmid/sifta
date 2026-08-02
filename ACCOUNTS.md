@@ -87,6 +87,10 @@ for the **Production** environment → **Redeploy**.
 
 ## 2. AWS — account and cost control
 
+> **No AWS account yet? Start with [`AWS-SETUP.md`](AWS-SETUP.md)** — signup,
+> the Free plan choice, root MFA, budget alert, Bedrock model access, IAM keys
+> and S3, step by step. Come back here afterwards.
+
 **Do the budget alert before anything else.** Bedrock is pay-per-token and
 there is no free tier for it.
 

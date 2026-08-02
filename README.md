@@ -187,6 +187,7 @@ previous run.
 None are required — the project runs today on a local cluster and a
 deterministic local embedder. See [`ACCOUNTS.md`](ACCOUNTS.md) for what each
 service unlocks, what breaks without it, and the order worth doing them in.
+No AWS account yet? [`AWS-SETUP.md`](AWS-SETUP.md) walks through it from zero.
 
 ## Deployment
 
