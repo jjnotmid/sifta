@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Disconnected } from '@/components/disconnected';
 import { listDecisions } from '@/lib/queries';
 
 export const dynamic = 'force-dynamic';
@@ -15,7 +16,8 @@ export const dynamic = 'force-dynamic';
  * affordance to hide — there is nothing it could offer.
  */
 export default async function LedgerPage() {
-  const decisions = await listDecisions();
+  const result = await listDecisions();
+  const decisions = result.ok ? result.data : [];
 
   return (
     <main className="shell" style={{ paddingTop: 'var(--s-5)', paddingBottom: 'var(--s-8)' }}>
@@ -30,12 +32,16 @@ export default async function LedgerPage() {
         <h1 className="t-h1" style={{ margin: 0 }}>
           Decision ledger
         </h1>
-        <p className="t-data-sm muted" style={{ margin: 0 }}>
-          {decisions.length} record{decisions.length === 1 ? '' : 's'} · append-only
-        </p>
+        {result.ok ? (
+          <p className="t-data-sm muted" style={{ margin: 0 }}>
+            {decisions.length} record{decisions.length === 1 ? '' : 's'} · append-only
+          </p>
+        ) : null}
       </header>
 
-      {decisions.length === 0 ? (
+      {!result.ok ? (
+        <Disconnected reason={result.reason} />
+      ) : decisions.length === 0 ? (
         <p className="muted" style={{ padding: 'var(--s-6) 0' }}>
           No decisions recorded. Dispositioning an alert writes here permanently.
         </p>

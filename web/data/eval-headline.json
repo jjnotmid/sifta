@@ -1,0 +1,13 @@
+{
+  "positives": 200,
+  "negatives": 5000,
+  "matchedRecall": "81.5%",
+  "baselineFalsePositives": 2643,
+  "siftaFalsePositives": 92,
+  "baselinePrecision": "5.8%",
+  "siftaPrecision": "65.7%",
+  "reduction": "96.5%",
+  "entities": 19181,
+  "variants": 257792,
+  "generatedAt": "2026-08-02"
+}

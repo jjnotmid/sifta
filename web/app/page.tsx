@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { Field, type FieldCell } from '@/components/field';
 import { MATCH_THRESHOLD } from '@/lib/constants';
-import { query } from '@/lib/db';
 import { readEvalHeadline } from '@/lib/eval';
+import { getHeroCandidates } from '@/lib/queries';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,7 +18,8 @@ export const dynamic = 'force-dynamic';
  * database; if a source is absent the section is omitted rather than filled.
  */
 export default async function MarketingPage() {
-  const [headline, heroCells] = await Promise.all([readEvalHeadline(), loadHeroField()]);
+  const headline = readEvalHeadline();
+  const heroCells = await loadHeroField();
 
   return (
     <main>
@@ -57,8 +58,7 @@ export default async function MarketingPage() {
       </section>
 
       {/* ---- The problem, in measured numbers -------------------------- */}
-      {headline ? (
-        <section
+      <section
           style={{
             borderTop: '1px solid var(--rule)',
             borderBottom: '1px solid var(--rule)',
@@ -106,7 +106,6 @@ export default async function MarketingPage() {
             </p>
           </div>
         </section>
-      ) : null}
 
       {/* ---- How it works: three steps, no icons ----------------------- */}
       <section className="shell" style={{ padding: 'var(--s-7) var(--s-4)' }}>
@@ -235,35 +234,18 @@ function Step({ n, title, body }: { n: string; title: string; body: string }) {
 /**
  * The hero Field shows a real candidate set from the database — the most
  * recent investigation that recorded one. There is no synthetic fallback: an
- * empty database renders no grid rather than a decorative one, because a fake
- * Field on the marketing page would be exactly the "AI slop" the brief bans.
+ * empty or unreachable database renders no grid rather than a decorative one,
+ * because a fake Field on the marketing page would be exactly the "AI slop"
+ * the brief bans. The page itself stays up either way.
  */
 async function loadHeroField(): Promise<FieldCell[]> {
-  try {
-    const rows = await query<{ tool_trace: unknown }>(
-      `SELECT tool_trace FROM investigation
-        WHERE tool_trace IS NOT NULL
-        ORDER BY updated_at DESC LIMIT 1`,
-    );
-    const trace = rows[0]?.tool_trace;
-    if (!Array.isArray(trace)) return [];
-
-    for (const step of trace) {
-      const candidates = (step as { output?: { candidates?: unknown } }).output?.candidates;
-      if (Array.isArray(candidates) && candidates.length > 0) {
-        return (candidates as { variantText: string; distance: string | number }[]).map((c) => {
-          const distance = Number(c.distance);
-          return {
-            label: c.variantText,
-            distance,
-            state: distance <= MATCH_THRESHOLD ? ('match' as const) : ('cleared' as const),
-          };
-        });
-      }
-    }
-    return [];
-  } catch {
-    // The marketing page must render without a database.
-    return [];
-  }
+  const candidates = await getHeroCandidates();
+  return candidates.map((candidate) => {
+    const distance = Number(candidate.distance);
+    return {
+      label: candidate.variantText,
+      distance,
+      state: distance <= MATCH_THRESHOLD ? ('match' as const) : ('cleared' as const),
+    };
+  });
 }

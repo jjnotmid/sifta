@@ -1,11 +1,17 @@
 import 'server-only';
-import { query } from './db';
+import { tryQuery } from './db';
 
 /**
  * Every figure the console renders comes from one of these queries. There is
  * no fixture data and no placeholder state anywhere in `web/` — if the queue
  * is empty, the screen says the queue is empty.
+ *
+ * Each returns a `Result`: either rows, or the reason the database could not
+ * be read. Callers render the reason. A deployed console with no cluster
+ * behind it is a normal, explainable condition, not a crash.
  */
+
+export type Result<T> = { ok: true; data: T } | { ok: false; reason: string };
 
 export type AlertStatus = 'OPEN' | 'INVESTIGATING' | 'CLEARED' | 'HIT' | 'ESCALATED';
 export type Disposition = 'CLEARED' | 'HIT' | 'ESCALATED';
@@ -35,8 +41,8 @@ const ALERT_COLUMNS = `
   (SELECT count(*)::int FROM decision d WHERE d.subject_key = a.subject_key) AS prior_decisions
 `;
 
-export async function listAlerts(limit = 200): Promise<AlertRow[]> {
-  return query<AlertRow>(
+export async function listAlerts(limit = 200): Promise<Result<AlertRow[]>> {
+  const result = await tryQuery<AlertRow>(
     `SELECT ${ALERT_COLUMNS}
        FROM alert a
        LEFT JOIN watchlist_entity w ON w.id = a.matched_entity
@@ -49,17 +55,18 @@ export async function listAlerts(limit = 200): Promise<AlertRow[]> {
       LIMIT $1`,
     [limit],
   );
+  return result.ok ? { ok: true, data: result.rows } : result;
 }
 
-export async function getAlert(id: string): Promise<AlertRow | null> {
-  const rows = await query<AlertRow>(
+export async function getAlert(id: string): Promise<Result<AlertRow | null>> {
+  const result = await tryQuery<AlertRow>(
     `SELECT ${ALERT_COLUMNS}
        FROM alert a
        LEFT JOIN watchlist_entity w ON w.id = a.matched_entity
       WHERE a.id = $1`,
     [id],
   );
-  return rows[0] ?? null;
+  return result.ok ? { ok: true, data: result.rows[0] ?? null } : result;
 }
 
 /**
@@ -89,11 +96,13 @@ export interface CandidateRow {
  * audit trail that changes when you look at it is not an audit trail.
  */
 export async function getCandidates(alertId: string): Promise<CandidateRow[]> {
-  const rows = await query<{ tool_trace: unknown }>(
+  const result = await tryQuery<{ tool_trace: unknown }>(
     `SELECT tool_trace FROM investigation WHERE alert_id = $1 ORDER BY updated_at DESC LIMIT 1`,
     [alertId],
   );
-  const trace = rows[0]?.tool_trace;
+  if (!result.ok) return [];
+
+  const trace = result.rows[0]?.tool_trace;
   if (!Array.isArray(trace)) return [];
 
   for (const step of trace) {
@@ -124,12 +133,12 @@ export interface InvestigationRow {
 }
 
 export async function getInvestigation(alertId: string): Promise<InvestigationRow | null> {
-  const rows = await query<InvestigationRow>(
+  const result = await tryQuery<InvestigationRow>(
     `SELECT id, alert_id, state, step_count, tool_trace, updated_at
        FROM investigation WHERE alert_id = $1 ORDER BY updated_at DESC LIMIT 1`,
     [alertId],
   );
-  return rows[0] ?? null;
+  return result.ok ? (result.rows[0] ?? null) : null;
 }
 
 export interface DecisionRow {
@@ -155,7 +164,7 @@ export async function getPriorDecisions(
   subjectKey: string,
   excludeAlertId?: string,
 ): Promise<DecisionRow[]> {
-  return query<DecisionRow>(
+  const result = await tryQuery<DecisionRow>(
     `SELECT d.id, d.alert_id, d.subject_key, d.entity_id, d.disposition, d.rationale,
             d.decided_by, d.agent_assisted, d.decided_at, a.subject_name
        FROM decision d
@@ -164,10 +173,11 @@ export async function getPriorDecisions(
       ORDER BY d.decided_at DESC`,
     [subjectKey, excludeAlertId ?? null],
   );
+  return result.ok ? result.rows : [];
 }
 
-export async function listDecisions(limit = 500): Promise<DecisionRow[]> {
-  return query<DecisionRow>(
+export async function listDecisions(limit = 500): Promise<Result<DecisionRow[]>> {
+  const result = await tryQuery<DecisionRow>(
     `SELECT d.id, d.alert_id, d.subject_key, d.entity_id, d.disposition, d.rationale,
             d.decided_by, d.agent_assisted, d.decided_at, a.subject_name
        FROM decision d
@@ -176,6 +186,7 @@ export async function listDecisions(limit = 500): Promise<DecisionRow[]> {
       LIMIT $1`,
     [limit],
   );
+  return result.ok ? { ok: true, data: result.rows } : result;
 }
 
 export interface Totals {
@@ -186,8 +197,8 @@ export interface Totals {
   decisions: number;
 }
 
-export async function getTotals(): Promise<Totals> {
-  const rows = await query<Totals>(
+export async function getTotals(): Promise<Totals | null> {
+  const result = await tryQuery<Totals>(
     `SELECT
        (SELECT count(*)::int FROM watchlist_entity) AS entities,
        (SELECT count(*)::int FROM name_variant)     AS variants,
@@ -195,5 +206,26 @@ export async function getTotals(): Promise<Totals> {
        (SELECT count(*)::int FROM alert WHERE status IN ('OPEN','INVESTIGATING')) AS open,
        (SELECT count(*)::int FROM decision)         AS decisions`,
   );
-  return rows[0] ?? { entities: 0, variants: 0, alerts: 0, open: 0, decisions: 0 };
+  return result.ok ? (result.rows[0] ?? null) : null;
+}
+
+/** The candidate set for the marketing hero — most recent recorded screen. */
+export async function getHeroCandidates(): Promise<CandidateRow[]> {
+  const result = await tryQuery<{ tool_trace: unknown }>(
+    `SELECT tool_trace FROM investigation
+      WHERE tool_trace IS NOT NULL
+      ORDER BY updated_at DESC LIMIT 1`,
+  );
+  if (!result.ok) return [];
+
+  const trace = result.rows[0]?.tool_trace;
+  if (!Array.isArray(trace)) return [];
+
+  for (const step of trace) {
+    const candidates = (step as { output?: { candidates?: unknown } }).output?.candidates;
+    if (Array.isArray(candidates) && candidates.length > 0) {
+      return candidates as CandidateRow[];
+    }
+  }
+  return [];
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Disconnected } from '@/components/disconnected';
 import { DispositionPanel } from '@/components/disposition-panel';
 import { MATCH_THRESHOLD } from '@/lib/constants';
 import { Field, type FieldCell } from '@/components/field';
@@ -28,7 +29,15 @@ export default async function InvestigationPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const alert = await getAlert(id);
+  const found = await getAlert(id);
+  if (!found.ok) {
+    return (
+      <main className="shell" style={{ paddingTop: 'var(--s-5)' }}>
+        <Disconnected reason={found.reason} />
+      </main>
+    );
+  }
+  const alert = found.data;
   if (!alert) notFound();
 
   const [candidates, investigation, priors] = await Promise.all([
