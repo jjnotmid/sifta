@@ -33,7 +33,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
+    // `suppressHydrationWarning` covers this element's own attributes only —
+    // not its children, so a genuine markup mismatch anywhere in the app still
+    // reports normally.
+    //
+    // It is here because browser extensions write to <html> before React
+    // hydrates. A crypto-wallet extension adding `data-bybit-channel-name` to
+    // the tag is indistinguishable, to React, from the server and client
+    // disagreeing. Nothing in this app renders anything on <html> that could
+    // differ between the two: the className is two build-time font variables.
+    <html
+      lang="en"
+      className={`${archivo.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <Nav />
         {children}
