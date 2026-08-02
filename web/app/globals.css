@@ -1,0 +1,314 @@
+/* ===========================================================================
+   Sifta design tokens — SIFTA-DESIGN-BRIEF.md §2, §3, §4.
+   Everything in the product derives from this file.
+
+   The one rule that governs the rest: amber means a match. It never appears
+   in a button, a link, a heading, or a logo lockup. There is exactly one
+   amber token and every use of it in this codebase marks a hit.
+   =========================================================================== */
+
+:root {
+  /* --- Color (§2) ------------------------------------------------------ */
+  --navy-900: #16204a;
+  --navy-700: #1e2a5e;
+  --navy-500: #38457d;
+  --navy-300: #8a93b8;
+
+  --amber: #f5a623; /* HITS ONLY */
+
+  --paper: #fafaf7;
+  --rule: #dddee5;
+  --ink: #0e1330;
+
+  --cleared: #b4b8c8;
+
+  /* --- Spacing (§4): base module 8px ----------------------------------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+  --s-6: 48px;
+  --s-7: 64px;
+  --s-8: 96px;
+
+  /* --- Motion (§7): mechanical, not expressive ------------------------- */
+  --t-state: 120ms;
+  --t-grid: 240ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* --- Structure ------------------------------------------------------- */
+  --row-h: 40px; /* §4: table row height */
+  --max-w: 1440px; /* §4: console max width */
+
+  color-scheme: light;
+}
+
+/* Dark mode (§2): swap paper/ink. Amber is identical in both. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16204a;
+    --ink: #fafaf7;
+    --rule: #38457d;
+    --navy-300: #8a93b8;
+    --cleared: #4a5378;
+    color-scheme: dark;
+  }
+}
+
+/* --- Reset ------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* §6: zero border radius. Everywhere. No exceptions. */
+  border-radius: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* §6: there are no shadows in this product. */
+* {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+}
+
+/* --- Type scale (§3) --------------------------------------------------- */
+.t-display {
+  font-size: 48px;
+  line-height: 52px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-stretch: expanded;
+}
+
+.t-h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-stretch: expanded;
+}
+
+.t-h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.t-h3 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.t-body {
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.t-label {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* §3: monospace for anything a human might need to verify. */
+.t-data {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-data-sm {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.muted {
+  color: var(--navy-300);
+}
+
+/* --- Shell ------------------------------------------------------------- */
+.shell {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s-4);
+}
+
+.nav {
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  z-index: 10;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  height: 64px;
+}
+
+.nav a {
+  color: var(--navy-300);
+  transition: color var(--t-state) var(--ease);
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--ink);
+}
+
+/* --- Tables (§4, §9): 40px rows, hairlines, no zebra ------------------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  position: sticky;
+  top: 64px;
+  background: var(--paper);
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  padding: 0 var(--s-2);
+  height: var(--row-h);
+  white-space: nowrap;
+}
+
+.table td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0 var(--s-2);
+  height: var(--row-h);
+  white-space: nowrap;
+}
+
+/* --- Semantic status --------------------------------------------------- */
+/* Amber left-edge marker: a row with a live match (§9). */
+.is-hit {
+  box-shadow: none;
+  border-left: 4px solid var(--amber);
+}
+
+.is-cleared {
+  color: var(--cleared);
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+}
+
+.dot-hit {
+  background: var(--amber);
+}
+
+.dot-open {
+  background: var(--navy-500);
+}
+
+.dot-cleared {
+  background: transparent;
+  border: 1px solid var(--cleared);
+}
+
+/* --- Buttons ----------------------------------------------------------- */
+.btn {
+  height: 32px;
+  padding: 0 var(--s-3);
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background var(--t-state) var(--ease), color var(--t-state) var(--ease);
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary {
+  background: var(--navy-700);
+  border-color: var(--navy-700);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: var(--paper);
+}
+
+.btn:disabled {
+  border-color: var(--rule);
+  color: var(--navy-300);
+  background: var(--paper);
+  cursor: not-allowed;
+}
+
+/* --- Panels ------------------------------------------------------------ */
+.panel {
+  border: 1px solid var(--rule);
+}
+
+.panel-head {
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s-2) var(--s-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-body {
+  padding: var(--s-3);
+}
+
+/* §7: reduced motion renders final state instantly. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

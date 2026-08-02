@@ -418,3 +418,99 @@ through an investigation.
   profile format, which is the correct identifier shape for the
   `ConverseCommand` path the PRD specifies. It is overridable via
   `BEDROCK_MODEL_ID`.
+
+---
+
+## Phase 7 — DEFERRED (owner decision)
+
+Phase 7 (AWS Lambda + S3) was deliberately skipped to build the frontend
+first, at the owner's request: Phase 7 produces nothing you can look at, and
+the console is what the demo video is built around. Nothing in Phase 8 depends
+on it — the console reads the local cluster directly. Phase 7 is still owed.
+
+---
+
+## Phase 8 — Frontend
+
+**Gate:** `cd web && npm run build && npm run lint` → exit 0 ✅
+
+**Built** — in the brief's own build order (§11).
+
+1. **Tokens** (`web/app/globals.css`) — every colour, type step, spacing unit
+   and motion constant from `SIFTA-DESIGN-BRIEF.md` §2–§4, and nothing else.
+   Zero border radius is set globally on `*`, and `box-shadow` is forced to
+   `none` on `*`, so the two hardest prohibitions cannot be violated by a
+   later component even by accident.
+2. **The Field** (`components/field.tsx`) — the signature element. Three
+   states and only three: filled navy candidate, hollow cleared, amber match.
+   Populates in 240ms, resolves left to right with a positional delay so the
+   drain reads as a sweep, hard-edged mono tooltip on hover. Honours
+   `prefers-reduced-motion` by painting the final state on the first frame.
+3. **Alert queue** (`/queue`) — dense 40px rows, hairline rules, sticky
+   header, no zebra striping, amber left-edge marker on live matches.
+   Keyboard: `j`/`k`/`Enter`/`c`/`e`.
+4. **Investigation view** (`/alerts/[id]`) — subject and Field left; agent
+   trace as a timestamped mono log right; prior decisions beneath it with the
+   two-Field memory comparison; disposition controls pinned bottom-right.
+5. **Decision ledger** (`/ledger`) — mono throughout, austere, append-only.
+6. **Marketing page** (`/`) — hero is the Field animating over a real
+   candidate set, then the measured numbers, three steps without icons, the
+   architecture, one call to action.
+
+**Judgement calls**
+
+- **`c` and `e` do not disposition immediately.** The brief asks for both as
+  queue shortcuts; they open a rationale prompt instead of writing straight to
+  the ledger. A disposition with no analyst rationale is worth nothing to the
+  next screen of the same subject, and auto-filling one would be fabricating a
+  compliance record.
+- **The console never re-screens to draw the Field.** Candidates are recovered
+  from `investigation.tool_trace`. Re-running the vector search on page load
+  would show today's answer rather than the one the recorded decision was
+  actually made on, and an audit trail that changes when you look at it is not
+  an audit trail. This is why the agent's `search_watchlist` step now records
+  the candidate set and not just its size.
+- **No fixture data anywhere in `web/`.** Every figure is a live query or is
+  parsed out of `eval/results.md`. If a source is missing the section is
+  omitted rather than filled — the marketing page renders without a database,
+  and renders *without the numbers section* if the eval has not been run.
+- **`next lint` was replaced with the ESLint CLI.** It is deprecated in Next
+  15 and prompts interactively on first run; a gate that waits for a keypress
+  never exits 0.
+
+**⚠ Screening defect found and fixed while seeding the queue**
+
+`DEFAULT_MATCH_THRESHOLD` was **0.35**, with a comment claiming it was "the
+operating point reported in eval/results.md". It was not. The sweep in that
+file measures 0.35 at **3.5% recall — 193 of 200 known hits missed**. The
+measured 95%-recall operating point is **0.90**, which is what the constant
+now holds.
+
+This is the worst class of bug this system can have. A screen that silently
+drops 96% of true matches still looks healthy: the queue is quiet, the
+false-positive count is zero, and every dashboard is green. It surfaced only
+because seeding a demo queue produced 22 alerts and just one match, which
+looked wrong. In AML a missed hit is the compliance failure; the whole
+false-positive argument is downstream of catching the hit in the first place.
+
+All 106 tests still pass with the corrected threshold.
+
+**Files created**
+
+```
+web/{package.json,tsconfig.json,next.config.ts,eslint.config.mjs}
+web/app/{globals.css,layout.tsx,page.tsx,actions.ts}
+web/app/{queue,ledger}/page.tsx   web/app/alerts/[id]/page.tsx
+web/components/{field,memory-comparison,nav,queue-table,disposition-panel}.tsx
+web/lib/{db,queries,eval,constants}.ts
+scripts/seed-demo.ts
+```
+
+**Deferred**
+
+- The agent trace renders from the persisted `tool_trace`; it does not stream
+  live. The brief asks for streaming, and the data model supports it — the
+  trace is appended step by step — but the console currently reads it after
+  the fact.
+- Dark mode tokens are declared and the app respects
+  `prefers-color-scheme`, but the palette has only been reviewed in light.

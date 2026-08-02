@@ -20,7 +20,10 @@
     "ingest:variants": "tsx src/ingest/cli-variants.ts",
     "eval": "tsx src/eval/cli.ts",
     "build:lambda": "tsx scripts/build-lambda.ts",
-    "verify": "tsx scripts/verify.ts"
+    "verify": "tsx scripts/verify.ts",
+    "seed:demo": "tsx scripts/seed-demo.ts",
+    "web:dev": "npm --prefix web run dev",
+    "web:build": "npm --prefix web run build"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.1101.0",

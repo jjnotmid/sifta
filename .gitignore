@@ -23,3 +23,5 @@ data/eval/*.jsonl
 web/.next/
 web/out/
 web/node_modules/
+web/*.tsbuildinfo
+web/next-env.d.ts
