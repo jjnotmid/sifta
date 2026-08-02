@@ -15,10 +15,27 @@ import { useInView, usePrefersReducedMotion } from '@/lib/use-in-view';
  *   cleared    hollow            — ruled out; the grid visibly drains
  *   match      amber             — a hit. Nothing else in this product is amber.
  *
- * Motion is mechanical (§7): 240ms to populate, 120ms per state change, one
- * easing curve, no stagger that reads as decorative. Under
- * `prefers-reduced-motion` the Field renders its final state on the first
- * frame — the animation is a nicety, the information is not.
+ * ## The sequence
+ *
+ * §5 describes three distinct beats — the grid populates, cells are ruled out
+ * left to right, the survivor snaps to amber — and the first implementation
+ * collapsed them into about 460ms, which is below the threshold at which a
+ * person can see three things happen in order. It was technically animating
+ * and effectively static.
+ *
+ * Each beat now gets its own duration, and each individual module still moves
+ * on the brief's timings: 240ms to fill, 120ms per state change, one easing
+ * curve. What is staged is the *order*, which is the information — a screen
+ * resolving is the product working, and it should be legible as three steps.
+ *
+ *   fill      modules arrive left to right          ~500ms
+ *   hold      the full candidate set, undifferentiated  400ms
+ *   rule out  ruled-out modules drain, left to right   ~700ms
+ *   match     the survivor snaps to amber              120ms
+ *
+ * Nothing floats, fades in from an offset, scales, or bounces. Modules appear
+ * and change colour. Under `prefers-reduced-motion` the final state is painted
+ * on the first frame.
  */
 
 export type CellState = 'candidate' | 'cleared' | 'match';
@@ -38,26 +55,41 @@ export interface FieldProps {
   /** Module edge in px. Multiples of the 8px base only. */
   size?: number;
   /**
-   * Skip the populate/resolve sequence and paint the final state. Used by the
-   * memory comparison, where the prior screen is history and animating it
-   * would imply it is happening now.
+   * Skip the sequence and paint the final state. Used by the memory
+   * comparison, where the prior screen is history and animating it would
+   * imply it is happening now.
    */
   static?: boolean;
+  /**
+   * Replay the sequence continuously.
+   *
+   * Marketing hero only — §9 says "Hero is the Field, animating", in the
+   * present continuous. A visitor who scrolls in after a one-shot play would
+   * otherwise arrive at a still grid and never see the product work. Console
+   * Fields never loop: an analyst is reading evidence, not watching a demo.
+   */
+  loop?: boolean;
   label?: string;
 }
 
-type Phase = 'empty' | 'populated' | 'resolved';
+type Phase = 'empty' | 'filling' | 'holding' | 'ruling' | 'resolved';
+
+const FILL_MS = 500;
+const HOLD_MS = 400;
+const RULE_MS = 700;
+const REPLAY_GAP_MS = 2200;
 
 export function Field({
   cells,
   columns = 16,
   size = 16,
   static: isStatic = false,
+  loop = false,
   label,
 }: FieldProps) {
   const reduced = usePrefersReducedMotion();
-  // Populate when the grid is actually on screen. Playing the one animation
-  // the product is remembered by while it sits below the fold wastes it.
+  // Run when the grid is actually on screen. Playing the one animation the
+  // product is remembered by while it sits below the fold wastes it.
   const { ref, inView } = useInView<HTMLDivElement>();
   const skip = isStatic || reduced;
   const [phase, setPhase] = useState<Phase>(skip ? 'resolved' : 'empty');
@@ -68,16 +100,32 @@ export function Field({
       return;
     }
     if (!inView) return;
-    setPhase('empty');
-    // Populate, then resolve. Two steps, no per-cell stagger: the grid fills
-    // mechanically, the way a scan completes, not the way a hero animates.
-    const toPopulated = window.setTimeout(() => setPhase('populated'), 40);
-    const toResolved = window.setTimeout(() => setPhase('resolved'), 40 + 240);
-    return () => {
-      window.clearTimeout(toPopulated);
-      window.clearTimeout(toResolved);
+
+    const timers: number[] = [];
+
+    const run = () => {
+      setPhase('empty');
+      timers.push(window.setTimeout(() => setPhase('filling'), 30));
+      timers.push(window.setTimeout(() => setPhase('holding'), 30 + FILL_MS));
+      timers.push(window.setTimeout(() => setPhase('ruling'), 30 + FILL_MS + HOLD_MS));
+      timers.push(
+        window.setTimeout(() => setPhase('resolved'), 30 + FILL_MS + HOLD_MS + RULE_MS),
+      );
     };
-  }, [skip, inView, cells]);
+
+    run();
+
+    let interval = 0;
+    if (loop) {
+      const cycle = 30 + FILL_MS + HOLD_MS + RULE_MS + REPLAY_GAP_MS;
+      interval = window.setInterval(run, cycle);
+    }
+
+    return () => {
+      timers.forEach(window.clearTimeout);
+      if (interval) window.clearInterval(interval);
+    };
+  }, [skip, inView, loop, cells]);
 
   const matches = useMemo(() => cells.filter((c) => c.state === 'match').length, [cells]);
 
@@ -105,7 +153,14 @@ export function Field({
         }}
       >
         {cells.map((cell, i) => (
-          <Module key={`${cell.label}-${i}`} cell={cell} index={i} size={size} phase={phase} />
+          <Module
+            key={`${cell.label}-${i}`}
+            cell={cell}
+            index={i}
+            total={cells.length}
+            size={size}
+            phase={phase}
+          />
         ))}
       </div>
     </div>
@@ -115,29 +170,45 @@ export function Field({
 function Module({
   cell,
   index,
+  total,
   size,
   phase,
 }: {
   cell: FieldCell;
   index: number;
+  total: number;
   size: number;
   phase: Phase;
 }) {
   const [hover, setHover] = useState(false);
 
-  // Before resolution every module reads as an undifferentiated candidate.
-  // The judgement is the thing being animated, so it must not leak early.
-  const shown: CellState = phase === 'resolved' ? cell.state : 'candidate';
+  // Position through the grid, so both sweeps run left to right at a pace set
+  // by the number of modules rather than a hardcoded per-cell delay.
+  const progress = total <= 1 ? 0 : index / (total - 1);
+
+  const visible = phase !== 'empty';
+  // A module only reveals its verdict once the ruling beat reaches it. Before
+  // that every module reads as an undifferentiated candidate — the judgement
+  // is the thing being animated, so it must not leak early.
+  const ruled = phase === 'ruling' || phase === 'resolved';
+  const shown: CellState = ruled ? cell.state : 'candidate';
 
   const style: React.CSSProperties = {
     width: size,
     height: size,
     position: 'relative',
-    transition: `background-color var(--t-state) var(--ease), border-color var(--t-state) var(--ease), opacity var(--t-grid) var(--ease)`,
-    opacity: phase === 'empty' ? 0 : 1,
-    // Ruled-out modules resolve left to right (§5.2). The delay is a function
-    // of position, so the drain reads as a sweep rather than a twinkle.
-    transitionDelay: phase === 'resolved' ? `${Math.min(index * 6, 180)}ms` : '0ms',
+    opacity: visible ? 1 : 0,
+    transition:
+      'opacity var(--t-grid) var(--ease), background-color var(--t-state) var(--ease), border-color var(--t-state) var(--ease)',
+    transitionDelay:
+      phase === 'filling'
+        ? `${Math.round(progress * FILL_MS)}ms`
+        : phase === 'ruling'
+          ? // The match resolves last, after every rejection has landed.
+            cell.state === 'match'
+            ? `${RULE_MS}ms`
+            : `${Math.round(progress * RULE_MS)}ms`
+          : '0ms',
     border: '1px solid transparent',
     background: 'transparent',
   };

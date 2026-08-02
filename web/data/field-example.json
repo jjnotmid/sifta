@@ -1,0 +1,77 @@
+{
+  "subject": "VASSYLY KOOTOOSKY VILLARROOEL RAIREZ",
+  "threshold": 0.9,
+  "cells": [
+    {
+      "label": "VASSYLY KOOTOOSKY VILLARROOEL RAMIREZ  ·  Vassyly Kotosky VILLARROEL RAMIREZ",
+      "distance": 0.4833,
+      "state": "match"
+    },
+    {
+      "label": "ALEEXEE KOTEEY  ·  Alexanda Amon KOTEY",
+      "distance": 1.291,
+      "state": "cleared"
+    },
+    {
+      "label": "AABU MUHAAMMED AABUBAAKAAR BI MUHAAMMED  ·  Abubakar SHEKAU",
+      "distance": 1.2998,
+      "state": "cleared"
+    },
+    {
+      "label": "VANGUARD TACTICAL SUPPLY LIMITED  ·  VANGUARD TACTICAL SUPPLY LIMITED",
+      "distance": 1.3008,
+      "state": "cleared"
+    },
+    {
+      "label": "SHAYKH AHMAD IIMAN ALII  ·  Ahmad Iman ALI",
+      "distance": 1.3048,
+      "state": "cleared"
+    },
+    {
+      "label": "ALHASSAN IBRO ALI  ·  Ibrahim Ali ALHASSAN",
+      "distance": 1.3099,
+      "state": "cleared"
+    },
+    {
+      "label": "AL-HARAMAYN  ·  AL-HARAMAIN : KENYA BRANCH",
+      "distance": 1.3145,
+      "state": "cleared"
+    },
+    {
+      "label": "AABDULKAADIR OMAAR AABDULLAAHI  ·  Abdulkadir Omar ABDULLAHI",
+      "distance": 1.3194,
+      "state": "cleared"
+    },
+    {
+      "label": "AABDULKAADIR MOHAAMED AABDULKAADIR  ·  Abdikadir Mohamed ABDIKADIR",
+      "distance": 1.3254,
+      "state": "cleared"
+    },
+    {
+      "label": "ABU BILLALL ALL MINUKI  ·  Abu Bakr ibn Muhammad ibn 'Ali AL-MAINUKI",
+      "distance": 1.3264,
+      "state": "cleared"
+    },
+    {
+      "label": "ABU HAPHSAT  ·  Khalid AL-BARNAWI",
+      "distance": 1.3276,
+      "state": "cleared"
+    },
+    {
+      "label": "HALIIMA ADAN ALII  ·  Halima Adan ALI",
+      "distance": 1.3304,
+      "state": "cleared"
+    },
+    {
+      "label": "BASHIIR ALII YUSUF  ·  Bashir Ali YUSUF",
+      "distance": 1.3445,
+      "state": "cleared"
+    },
+    {
+      "label": "ABU M A BARNAWI  ·  Abu Musab AL-BARNAWI",
+      "distance": 1.3455,
+      "state": "cleared"
+    }
+  ],
+  "generatedAt": "2026-08-02"
+}

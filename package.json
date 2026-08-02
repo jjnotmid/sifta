@@ -25,7 +25,8 @@
     "web:dev": "npm --prefix web run dev",
     "web:build": "npm --prefix web run build",
     "eval:snapshot": "tsx scripts/eval-snapshot.ts",
-    "eval:example": "tsx scripts/worked-example.ts"
+    "eval:example": "tsx scripts/worked-example.ts",
+    "eval:field": "tsx scripts/field-snapshot.ts"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.1101.0",

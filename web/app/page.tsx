@@ -6,6 +6,7 @@ import { WorkedExample } from '@/components/worked-example';
 import { MATCH_THRESHOLD } from '@/lib/constants';
 import { readEvalHeadline } from '@/lib/eval';
 import { getHeroCandidates } from '@/lib/queries';
+import fieldExample from '@/data/field-example.json';
 
 export const dynamic = 'force-dynamic';
 
@@ -57,8 +58,7 @@ export default async function MarketingPage() {
       </section>
 
       {/* ---- What a screen looks like, with a legend ------------------- */}
-      {heroCells.length > 0 ? (
-        <section style={{ borderTop: '1px solid var(--rule)', background: 'var(--paper)' }}>
+      <section style={{ borderTop: '1px solid var(--rule)', background: 'var(--paper)' }}>
           <div className="shell" style={{ padding: 'var(--s-6) var(--s-4)' }}>
             <h2 className="t-h2" style={{ marginTop: 0 }}>
               One screen, drawn
@@ -69,13 +69,12 @@ export default async function MarketingPage() {
             </p>
 
             <div style={{ margin: 'var(--s-5) 0' }}>
-              <Field cells={heroCells} columns={20} size={20} />
+              <Field cells={heroCells} columns={20} size={20} loop />
             </div>
 
             <Legend />
           </div>
-        </section>
-      ) : null}
+      </section>
 
       {/* ---- The aggregate cost, with human referents ------------------ */}
       <section style={{ borderTop: '1px solid var(--rule)' }}>
@@ -330,6 +329,14 @@ function Step({ n, title, body }: { n: string; title: string; body: string }) {
  */
 async function loadHeroField(): Promise<FieldCell[]> {
   const candidates = await getHeroCandidates();
+
+  // No cluster attached: fall back to a real recorded screen, committed by
+  // `npm run eval:field`. Not a decorative stand-in — the same candidates,
+  // spellings and distances a live read would return, frozen at snapshot time.
+  if (candidates.length === 0) {
+    return (fieldExample.cells as FieldCell[]).map((cell) => ({ ...cell }));
+  }
+
   return candidates.map((candidate) => {
     const distance = Number(candidate.distance);
     return {
