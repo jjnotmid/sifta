@@ -91,8 +91,15 @@ npm run migrate
 npm run ingest:ofac
 npm run ingest:variants
 npm run seed:demo
+
+# The console has no localhost fallback, so point it at the local cluster:
+echo 'DATABASE_URL=postgresql://root@localhost:26257/sifta?sslmode=disable' > web/.env.local
+
 npm --prefix web run dev     # http://localhost:3000
 ```
+
+`web/.env.local` is gitignored. Without it the console renders its
+"No database" panels even though the cluster is running locally.
 
 ## Keeping the numbers current
 
