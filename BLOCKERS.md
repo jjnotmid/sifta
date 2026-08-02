@@ -136,3 +136,55 @@ that happens to read it, but it should not be described as the guarantee.
 The guarantee is two things, neither of which is that header: the RBAC role on
 the far side, and the local gate in `readonly.ts` on ours, which refuses any
 tool whose name implies a mutation regardless of what the server says about it.
+
+---
+
+## 5. ELIGIBILITY — mandatory tool requirements not yet met
+
+**Not a build failure. This is the difference between being judged and being
+disqualified.** Read from the official rules on 2 August.
+
+The rules require **at least two** of these CockroachDB tools:
+
+| Tool | Status |
+|---|---|
+| **Vector Indexing** | ✅ Used — inline, prefix-partitioned by jurisdiction, `EXPLAIN`-proven |
+| **MCP Server** | ⚠️ Implemented in `src/mcp/`, but inert without `CRDB_MCP_API_KEY`. Does it count as "used" if it never connects? Assume not. |
+| **ccloud CLI** | ❌ Not used |
+| **Agent Skills Repo** | ❌ Not used |
+
+…and **at least one AWS service**:
+
+| Service | Status |
+|---|---|
+| Lambda / S3 / Bedrock | ❌ **None used.** Phase 7 is not built and no AWS account exists. |
+
+### What this means
+
+Counting strictly, the submission currently uses **one** CockroachDB tool and
+**zero** AWS services. Both requirements are unmet.
+
+Phase 7 was deferred as a scheduling choice — build the frontend first,
+because it is what a judge sees. That reasoning was sound for *quality* and
+wrong for *eligibility*: a beautiful console that uses no AWS service does not
+get judged at all.
+
+### Cheapest paths to compliant
+
+- **Second CockroachDB tool:** get `CRDB_MCP_API_KEY` and let the agent make
+  one real MCP call, or use the **ccloud CLI** to create the cluster and show
+  it in the video. The CLI is the lower-effort of the two and is hard to argue
+  with — you genuinely used it to provision the database.
+- **AWS service:** Bedrock is the smallest real step — set `PROVIDER=bedrock`
+  and let one investigation run through `ConverseCommand`. That is a used AWS
+  service without needing Lambda or S3 at all. Lambda and S3 remain the
+  stronger answer and are what Phase 7 delivers.
+
+### Other submission requirements, for completeness
+
+- Public open-source repo with README, dependencies, setup instructions — repo
+  is **still private** (see #0); README exists.
+- A URL to a **functional demo app** — deployed, but shows "No database" until
+  a cloud cluster is attached.
+- A video **under 3 minutes**, public on YouTube or Vimeo — not made.
+- Deadline **18 August 2026, 5:00pm EDT**.
