@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useInView, usePrefersReducedMotion } from '@/lib/use-in-view';
 
 /**
  * The Field — SIFTA-DESIGN-BRIEF.md §5.
@@ -55,6 +56,9 @@ export function Field({
   label,
 }: FieldProps) {
   const reduced = usePrefersReducedMotion();
+  // Populate when the grid is actually on screen. Playing the one animation
+  // the product is remembered by while it sits below the fold wastes it.
+  const { ref, inView } = useInView<HTMLDivElement>();
   const skip = isStatic || reduced;
   const [phase, setPhase] = useState<Phase>(skip ? 'resolved' : 'empty');
 
@@ -63,6 +67,7 @@ export function Field({
       setPhase('resolved');
       return;
     }
+    if (!inView) return;
     setPhase('empty');
     // Populate, then resolve. Two steps, no per-cell stagger: the grid fills
     // mechanically, the way a scan completes, not the way a hero animates.
@@ -72,12 +77,12 @@ export function Field({
       window.clearTimeout(toPopulated);
       window.clearTimeout(toResolved);
     };
-  }, [skip, cells]);
+  }, [skip, inView, cells]);
 
   const matches = useMemo(() => cells.filter((c) => c.state === 'match').length, [cells]);
 
   return (
-    <div>
+    <div ref={ref}>
       {label ? (
         <div
           className="t-label muted"
@@ -187,19 +192,4 @@ function Tooltip({ cell }: { cell: FieldCell }) {
       </div>
     </div>
   );
-}
-
-function usePrefersReducedMotion(): boolean {
-  const [reduced, setReduced] = useState(false);
-  const mql = useRef<MediaQueryList | null>(null);
-
-  useEffect(() => {
-    mql.current = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mql.current.matches);
-    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mql.current.addEventListener('change', onChange);
-    return () => mql.current?.removeEventListener('change', onChange);
-  }, []);
-
-  return reduced;
 }

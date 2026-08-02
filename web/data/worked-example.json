@@ -1,0 +1,22 @@
+{
+  "written": "ABU M A BARNAWI",
+  "listed": "Abu Musab AL-BARNAWI",
+  "variantKind": "initialised",
+  "nationality": "Nigeria",
+  "aliases": [
+    "ABU MUSAB AL-BARNAWI",
+    "YUSUF, HABIB"
+  ],
+  "baselineScore": 0.847,
+  "baselineThreshold": 0.88,
+  "baselineCaught": false,
+  "siftaDistance": 0,
+  "siftaThreshold": 0.9,
+  "siftaCaught": true,
+  "candidatesScreened": 20,
+  "entitiesOnList": 19181,
+  "generatedAt": "2026-08-02",
+  "baselineFalsePositivesAtOperating": 2643,
+  "baselineThresholdToCatch": 0.84,
+  "baselineFalsePositivesToCatch": 4103
+}
