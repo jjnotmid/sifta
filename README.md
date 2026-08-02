@@ -182,6 +182,12 @@ previous run.
 
 ---
 
+## Accounts and credentials
+
+None are required — the project runs today on a local cluster and a
+deterministic local embedder. See [`ACCOUNTS.md`](ACCOUNTS.md) for what each
+service unlocks, what breaks without it, and the order worth doing them in.
+
 ## Deployment
 
 See [`DEPLOY.md`](DEPLOY.md). Two things that are easy to get wrong:

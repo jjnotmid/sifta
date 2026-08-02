@@ -122,10 +122,17 @@ allow/deny gate, the fail-closed default, the namespace isolation, and the
 credential-absent path. There is no test that connects to
 `https://cockroachlabs.cloud/mcp`, because there is no key (see #3).
 
-One consequence is worth stating plainly rather than discovering on demo day:
-the `X-Cockroach-MCP-Mode: read-only` request header is what the client *asks*
-the server for, and it has not been confirmed against the live service. If the
-server ignores or rejects that header, the local gate in `readonly.ts` is what
-actually holds the read-only guarantee — which is why it was built to not
-depend on the server's cooperation. When a key is available, confirm the
-server's own read-only mechanism and align the header if it differs.
+**Correction, 2 August.** The `X-Cockroach-MCP-Mode: read-only` request header
+in `client.ts` was my invention and is not the documented mechanism. CockroachDB
+Cloud enforces read-only through **Cloud RBAC on the service account whose API
+key you use**: every tool invocation is permission-checked before it runs, and
+requests are rejected when they exceed the account's scope.
+
+So the correct setup is to grant the service account a read-only role scoped to
+the cluster — documented in `ACCOUNTS.md` §5 — and the header is at best inert.
+It is left in place because it costs nothing and would be honoured by a server
+that happens to read it, but it should not be described as the guarantee.
+
+The guarantee is two things, neither of which is that header: the RBAC role on
+the far side, and the local gate in `readonly.ts` on ours, which refuses any
+tool whose name implies a mutation regardless of what the server says about it.
