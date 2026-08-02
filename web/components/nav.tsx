@@ -2,41 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-/**
- * The wordmark is set in the same square modules the Field is built from —
- * §0: the logo is the data visualization. The mark is navy only. Amber never
- * appears in a logo lockup (§1.2).
- */
-function Mark() {
-  return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-      <span style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 6px)', gap: 2 }}>
-        {[1, 1, 1, 1, 0, 1, 1, 1, 1].map((on, i) => (
-          <span
-            key={i}
-            style={{
-              width: 6,
-              height: 6,
-              background: on ? 'var(--navy-700)' : 'transparent',
-              border: on ? 'none' : '1px solid var(--rule)',
-            }}
-          />
-        ))}
-      </span>
-      <span
-        style={{
-          fontWeight: 800,
-          fontStretch: 'expanded',
-          letterSpacing: '-0.01em',
-          fontSize: 18,
-        }}
-      >
-        Sifta
-      </span>
-    </span>
-  );
-}
+import { Logo } from './logo';
 
 const LINKS = [
   { href: '/queue', label: 'Queue' },
@@ -46,11 +12,17 @@ const LINKS = [
 export function Nav() {
   const pathname = usePathname();
 
+  // Full-colour mark on the marketing page, navy-only in the console. Amber
+  // in the console means one thing — a live match — and a permanently amber
+  // logo sitting above the queue all day spends exactly the signal an analyst
+  // is scanning for (§1.2).
+  const isConsole = pathname.startsWith('/queue') || pathname.startsWith('/ledger') || pathname.startsWith('/alerts');
+
   return (
     <nav className="nav">
       <div className="shell nav-inner">
-        <Link href="/" style={{ color: 'var(--ink)' }}>
-          <Mark />
+        <Link href="/" style={{ color: 'var(--navy-700)', display: 'flex' }} aria-label="Sifta home">
+          <Logo height={20} accent={!isConsole} />
         </Link>
         <span style={{ flex: 1 }} />
         {LINKS.map((link) => (

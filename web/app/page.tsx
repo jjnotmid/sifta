@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Field, type FieldCell } from '@/components/field';
+import { Logo } from '@/components/logo';
 import { MATCH_THRESHOLD } from '@/lib/constants';
 import { readEvalHeadline } from '@/lib/eval';
 import { getHeroCandidates } from '@/lib/queries';
@@ -191,9 +192,25 @@ export default async function MarketingPage() {
       </section>
 
       <footer style={{ borderTop: '1px solid var(--rule)' }}>
-        <div className="shell" style={{ padding: 'var(--s-4)' }}>
+        <div
+          className="shell"
+          style={{
+            padding: 'var(--s-6) var(--s-4)',
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
+            gap: 'var(--s-4)',
+            flexWrap: 'wrap',
+          }}
+        >
+          {/* The mark at size, in full colour. §0: the logo is the data
+              visualisation — navy modules with a few amber ones, which is the
+              product in one image. */}
+          <div style={{ color: 'var(--navy-700)' }}>
+            <Logo height={56} accent />
+          </div>
           <p className="t-data-sm muted" style={{ margin: 0 }}>
-            Sifta · MIT licensed · built for the CockroachDB × AWS hackathon
+            MIT licensed · built for the CockroachDB × AWS hackathon
           </p>
         </div>
       </footer>
