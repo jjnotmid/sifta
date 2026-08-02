@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import pg from 'pg';
 import { DATABASE_URL } from '../config.js';
 
@@ -19,10 +20,36 @@ export interface PoolOptions {
   max?: number;
 }
 
+/**
+ * CockroachDB Cloud connection strings carry `sslmode=verify-full`, which
+ * requires a CA the client actually trusts. Most Cloud clusters present a
+ * publicly-signed certificate and Node's built-in bundle is enough — but the
+ * Connect dialog also offers a `root.crt` download, and for clusters that need
+ * it, `sslmode` alone in the URL will not load it. `pg` parses the mode but
+ * never reads a certificate file.
+ *
+ * So: point DATABASE_CA_CERT at the downloaded file and it is used. Leave it
+ * unset and nothing changes.
+ */
+function sslConfig(): pg.ClientConfig['ssl'] {
+  const caPath = process.env.DATABASE_CA_CERT;
+  if (!caPath) return undefined;
+  try {
+    return { ca: readFileSync(caPath, 'utf8'), rejectUnauthorized: true };
+  } catch (err) {
+    throw new Error(
+      `DATABASE_CA_CERT is set to '${caPath}' but the file could not be read: ` +
+        `${err instanceof Error ? err.message : String(err)}`,
+    );
+  }
+}
+
 export function getPool(options: PoolOptions = {}): pg.Pool {
   if (pool) return pool;
+  const ssl = sslConfig();
   pool = new Pool({
     connectionString: options.connectionString ?? DATABASE_URL,
+    ...(ssl ? { ssl } : {}),
     max: options.max ?? 10,
     // CockroachDB closes idle connections server-side; fail fast rather than
     // handing a dead socket to a query.

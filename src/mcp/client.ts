@@ -45,6 +45,8 @@ export type MCPConnectResult =
 export interface CockroachMCPOptions {
   url?: string;
   apiKey?: string;
+  /** Which cluster the server should act against. */
+  clusterId?: string;
   /** Client identity sent on initialize. */
   clientName?: string;
 }
@@ -52,6 +54,7 @@ export interface CockroachMCPOptions {
 export class CockroachMCPClient {
   private readonly url: string;
   private readonly apiKey: string | undefined;
+  private readonly clusterId: string | undefined;
   private readonly clientName: string;
   private client: Client | null = null;
   private transport: StreamableHTTPClientTransport | null = null;
@@ -60,6 +63,7 @@ export class CockroachMCPClient {
   constructor(options: CockroachMCPOptions = {}) {
     this.url = options.url ?? process.env.CRDB_MCP_URL ?? DEFAULT_MCP_URL;
     this.apiKey = options.apiKey ?? process.env.CRDB_MCP_API_KEY;
+    this.clusterId = options.clusterId ?? process.env.CRDB_MCP_CLUSTER_ID;
     this.clientName = options.clientName ?? 'sifta';
   }
 
@@ -89,10 +93,10 @@ export class CockroachMCPClient {
       requestInit: {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
-          // Asked of the server as well as enforced locally. If the server
-          // honours it, writes fail at the far end too; if it ignores it,
-          // readonly.ts still holds the line.
-          'X-Cockroach-MCP-Mode': 'read-only',
+          // The server needs to be told which cluster to act against. This is
+          // the header CockroachDB Cloud's own Connect dialog hands out, and
+          // without it the connection has no target.
+          ...(this.clusterId ? { 'mcp-cluster-id': this.clusterId } : {}),
         },
       },
     });
