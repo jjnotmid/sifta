@@ -106,7 +106,13 @@ export async function investigate(
     await appendToolStep(investigation.id, {
       tool: 'search_watchlist',
       input: { name: alert.subjectName },
-      output: { candidateCount: search.candidates.length },
+      // The candidate set itself is recorded, not just its size. A trace that
+      // says "20 candidates" cannot be replayed: an auditor asking which 20,
+      // at what distances, would have to re-run the search — and a re-run
+      // against a since-updated list returns a different answer than the one
+      // the decision was actually made on. This is also what lets the console
+      // render the Field from history rather than by re-screening.
+      output: { candidateCount: search.candidates.length, candidates: search.candidates },
     });
     outcome.candidates = search.candidates;
     outcome.steps++;

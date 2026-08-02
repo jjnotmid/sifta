@@ -71,10 +71,22 @@ export async function screenSubject(request: ScreenRequest): Promise<ScreenResul
  * Distance at or below which a candidate is treated as a match.
  *
  * Embeddings are L2-normalised, so distance runs 0 (identical) to 2
- * (opposite). This default is the operating point reported in eval/results.md;
- * `npm run eval` sweeps the full range rather than assuming it.
+ * (opposite).
+ *
+ * This is the operating point measured in eval/results.md: 95.0% recall at
+ * 290 false positives over 5,000 clean names. It is taken from the sweep, not
+ * chosen by intuition — and the sweep is why it is 0.90 rather than the 0.35
+ * this constant originally held. At 0.35 the engine recalls **3.5%** of known
+ * hits, missing 193 of 200. That is not a conservative setting; in AML a
+ * missed hit is the compliance failure, and a screen that silently drops 96%
+ * of true matches while looking clean is the worst outcome this system can
+ * produce.
+ *
+ * Re-run `npm run eval` after any change to the embedder or the variant rules
+ * and move this to whatever the new sweep reports. It is a measured value
+ * with a shelf life, not a constant.
  */
-export const DEFAULT_MATCH_THRESHOLD = 0.35;
+export const DEFAULT_MATCH_THRESHOLD = 0.9;
 
 export function isMatch(candidate: Candidate, threshold = DEFAULT_MATCH_THRESHOLD): boolean {
   return candidate.distance <= threshold;
