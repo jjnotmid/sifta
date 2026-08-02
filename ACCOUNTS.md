@@ -8,6 +8,20 @@ console degrades to an explained empty state rather than failing. So do these
 in the order below, and stop when you have what you need — not all of it is
 worth the setup cost before a deadline.
 
+### Accounts that are not credentials
+
+These have no env var and nothing in the code touches them — but the
+submission does not exist without the first one.
+
+| Account | Cost | Why |
+|---|---|---|
+| **Devpost** | Free, no card | Where the hackathon is actually submitted. Nothing is judged without it. |
+| **YouTube or Vimeo** | Free | The demo video must be *public* on one of them — a rules requirement, not a preference. |
+| GitHub | Have it | The repo must be **public** before judging — see `BLOCKERS.md` #0 |
+| Vercel | Have it | Hosts the console |
+
+### Credentials the code reads
+
 | Service | Env var | Unlocks | Without it |
 |---|---|---|---|
 | CockroachDB Cloud | `DATABASE_URL` | A deployed console with real data | Deployed console shows "No database"; local dev unaffected |
