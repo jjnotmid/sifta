@@ -1,6 +1,7 @@
 import type { PoolClient } from 'pg';
 import { CANDIDATE_LIMIT } from '../config.js';
 import { normalizeName } from '../normalize.js';
+import { withRetry } from './retry.js';
 import { getPool } from './pool.js';
 import type { Candidate, NameVariantInput, VariantKind } from './types.js';
 import { encodeVector } from './vector.js';
@@ -73,11 +74,17 @@ export async function insertVariants(
       );
     });
 
-    const { rowCount } = await conn.query(
-      `INSERT INTO name_variant (entity_id, jurisdiction, variant_text, variant_kind, embedding)
-       VALUES ${tuples.join(', ')}
-       ON CONFLICT (entity_id, variant_text, variant_kind) ${conflictClause}`,
-      values,
+    // Retried per chunk. This is the hot path of a job that makes tens of
+    // thousands of round trips, and against a cluster on another continent a
+    // dropped socket somewhere in that window is expected rather than
+    // exceptional. The ON CONFLICT clause makes a replayed chunk a no-op.
+    const { rowCount } = await withRetry(() =>
+      conn.query(
+        `INSERT INTO name_variant (entity_id, jurisdiction, variant_text, variant_kind, embedding)
+         VALUES ${tuples.join(', ')}
+         ON CONFLICT (entity_id, variant_text, variant_kind) ${conflictClause}`,
+        values,
+      ),
     );
     written += rowCount ?? 0;
   }

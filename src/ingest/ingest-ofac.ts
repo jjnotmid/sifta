@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { withRetry } from '../memory/retry.js';
 import { insertVariants } from '../memory/variants.js';
 import { upsertEntities } from '../memory/watchlist.js';
 import type { NameVariantInput, WatchlistEntityInput } from '../memory/types.js';
@@ -39,7 +40,10 @@ export async function loadSdnFile(path: string): Promise<ParsedSdnList> {
  */
 export async function ingestSdn(
   list: ParsedSdnList,
-  options: { onProgress?: (written: number, total: number) => void } = {},
+  options: {
+    onProgress?: (written: number, total: number) => void;
+    onRetry?: (attempt: number, err: unknown, delayMs: number) => void;
+  } = {},
 ): Promise<IngestSummary> {
   const entries = list.entries;
   const byJurisdiction: Record<string, number> = {};
@@ -49,7 +53,11 @@ export async function ingestSdn(
   for (let i = 0; i < entries.length; i += ENTITY_CHUNK) {
     const chunk = entries.slice(i, i + ENTITY_CHUNK);
     const inputs: WatchlistEntityInput[] = chunk.map(toEntityInput);
-    const ids = await upsertEntities(inputs);
+    // Each chunk is retried independently. Upserts are keyed on
+    // (source_list, source_ref), so replaying one after a dropped connection
+    // is a no-op rather than a duplicate — which is what makes retry safe here
+    // and why this is not simply "restart the whole ingest".
+    const ids = await withRetry(() => upsertEntities(inputs), { onRetry: options.onRetry });
     entitiesWritten += ids.length;
 
     for (const entry of chunk) {
@@ -76,7 +84,9 @@ export async function ingestSdn(
         });
       }
     });
-    aliasesWritten += await insertVariants(variants);
+    aliasesWritten += await withRetry(() => insertVariants(variants), {
+      onRetry: options.onRetry,
+    });
 
     options.onProgress?.(Math.min(i + ENTITY_CHUNK, entries.length), entries.length);
   }

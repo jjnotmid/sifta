@@ -54,7 +54,14 @@ export function getPool(options: PoolOptions = {}): pg.Pool {
     // CockroachDB closes idle connections server-side; fail fast rather than
     // handing a dead socket to a query.
     idleTimeoutMillis: 30_000,
-    connectionTimeoutMillis: 15_000,
+    // Generous, because a cluster can be a continent away and the ingest runs
+    // for hours. Transient drops are retried in src/memory/retry.ts rather
+    // than being papered over with an infinite timeout.
+    connectionTimeoutMillis: 30_000,
+    // Without TCP keepalive, a NAT or firewall on a long-haul path silently
+    // drops an idle connection and the next query fails with ETIMEDOUT.
+    keepAlive: true,
+    keepAliveInitialDelayMillis: 10_000,
     application_name: 'sifta',
   });
   // A pool-level error (server restart, network drop) is emitted on the pool,
